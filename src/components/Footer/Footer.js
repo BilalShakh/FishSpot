@@ -10,7 +10,7 @@ function Footer() {
                 spacing="0"
             >
                 <Box></Box>
-                <Box width="75%">
+                <Box width="75%" mt="15px">
                     <Flex>
                         <Box>
                             <VStack spacing="0" alignItems="baseline">
