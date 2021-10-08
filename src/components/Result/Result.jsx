@@ -1,5 +1,6 @@
 
 import React from "react";
+// importing image files
 import samplemap from '../../assets/images/resultsamplemap.jpg';
 import spot1 from '../../assets/images/samplespotimage1-1.jpg';
 import spot2 from '../../assets/images/samplespotimage1-2.jpg';
@@ -14,21 +15,30 @@ import styles from './result.module.css';
 function Result() {
   return (
     <div className="result">
+      {/* full width container for all the elements*/}
       <div class="container-fluid">
+      {/* bootstrap 12 columnn row */}
       <div class ="row">
+        {/* takes up all columns on all screen sizes*/}
         <div class="col-12 mapmargin">
-          <img class ="samplemap" src={samplemap} alt="google map result"/>
+          {/* inserting an an image, along with the alternative text for when the image can't be displayed*/}
+          <img class ="samplemap" src={samplemap} alt="google map image"/>
         </div>
       </div>
+      {/* the second class "justify-conent-center" alignes the column to the center of the page*/}
       <div class="row justify-content-center">
+        {/* take up 3 column on medium screen and 6 column on small sreen 
+        so we have 4 columns on medium screen or larger and 2 column for smaller screens*/}
+      
         <div class="col-md-3 col-xs-6">
           <div class = "row">
               <div class = "col-12">
-                <img src={spot1} alt="google map result"/>
+                <img src={spot1} alt="Jacky Fishingspot image"/>
               </div>
           </div>
           <div class = "row">
             <div class = "col-12">
+              {/* some text info for the objects */}
               <h4>Jacky Fishingspot</h4>
               <h5>Rating: 3.5 </h5>
               
@@ -38,7 +48,7 @@ function Result() {
         <div class="col-md-3 col-xs-6">
           <div class = "row">
             <div class = "col-12">
-              <img src={spot2} alt="google map result"/>
+              <img src={spot2} alt="Lake Niagare image"/>
             </div>
           </div>
           <div class = "row">
@@ -52,7 +62,7 @@ function Result() {
         <div class="col-md-3 col-xs-6">
           <div class = "row">
             <div class = "col-12">
-              <img src={spot3} alt="google map result"/>
+              <img src={spot3} alt="Lake Carlisle image"/>
             </div>
           </div>
           <div class = "row">
@@ -66,7 +76,7 @@ function Result() {
         <div class="col-md-3 col-xs-6">
           <div class = "row">
             <div class = "col-12">
-              <img src={spot4} alt="google map result"/>
+              <img src={spot4} alt="Paris Pond image"/>
             </div>
           </div>
           <div class = "row">
@@ -85,7 +95,7 @@ function Result() {
         <div class="col-md-3 col-xs-6">
           <div class = "row">
             <div class = "col-12">
-              <img src={spot5} alt="google map result"/>
+              <img src={spot5} alt="John's Fishing Spots image"/>
             </div>
           </div>
           <div class = "row">
@@ -99,7 +109,7 @@ function Result() {
         <div class="col-md-3  col-xs-6">
           <div class = "row">
             <div class = "col-12">
-              <img src={spot6} alt="google map result"/>
+              <img src={spot6} alt="niapenco Fishing Sposts image"/>
             </div>
           </div>
           <div class = "row">
@@ -113,7 +123,7 @@ function Result() {
         <div class="col-md-3  col-xs-6">
           <div class = "row">
             <div class = "col-12">
-              <img src={spot6} alt="google map result"/>  
+              <img src={spot7} alt="Jacky Fishingspot image"/>  
             </div>
           </div>
           <div class = "row">
@@ -127,7 +137,7 @@ function Result() {
         <div class="col-md-3  col-xs-6">
           <div class = "row">
             <div class = "col-12">
-              <img src={spot8} alt="google map result"/>
+              <img src={spot8} alt="Cooper Creek image"/>
             </div>
           </div>
           <div class = "row">
