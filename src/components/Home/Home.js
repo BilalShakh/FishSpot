@@ -19,15 +19,6 @@ export default class Home extends Component {
             <div class = "home-background">
                 <VStack spacing="85px">
                     <Header></Header>
-                    {/* <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer /> */}
                     <HStack spacing="20px">
                         <FeaturedCard
                             color = "pink"
