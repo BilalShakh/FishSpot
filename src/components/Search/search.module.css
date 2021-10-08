@@ -4,6 +4,8 @@
 }
 
 .myform {
+    margin-top: 10%;
+    padding-top:20px;
     background-color: #3d3b3c;
 }
 
@@ -11,6 +13,23 @@
     color: white;
     background-color: #495665;
     border: none;
+}
+.btn-default {
+    background-color: purple;
+    color: white;
+    margin-bottom: 25px;
+    border: none;
+}
+
+form {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
+
+h2 {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 

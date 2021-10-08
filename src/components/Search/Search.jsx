@@ -22,7 +22,7 @@ function Search() {
                     <option value="four">4 Star</option>
                     <option value="five">5 Star</option>
                 </select>
-                <label for="searchrating">Choose your search rating</label>
+                <h6 for="searchrating">Choose your search rating</h6>
             </div>
             <button type="submit" class="btn btn-default">Search</button>
           </form>
