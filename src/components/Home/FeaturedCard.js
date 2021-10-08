@@ -1,13 +1,15 @@
 import React from 'react'
 
-import { Box, Image, Badge } from "@chakra-ui/react"
+import { Box, Image, Badge, AspectRatio } from "@chakra-ui/react"
 import { StarIcon } from '@chakra-ui/icons'
 
 function FeaturedCard(props) {
     return (
         <div>
-            <Box maxW="300px" borderWidth="0px" borderRadius="lg" overflow="hidden" backgroundColor={props.color}>
-                        <Image  height="345px" width="350px" src={props.Image} alt="IMAGE NOT FOUND" />
+            <Box maxW="300px" h="492px" borderWidth="0px" borderRadius="lg" overflow="hidden" backgroundColor={props.color}>
+                        <AspectRatio w="300px" ratio={0.87}>
+                            <Image  src={props.Image} alt="IMAGE NOT FOUND" />
+                        </AspectRatio>
 
                         <Box p="6">
                             <Box display="flex" alignItems="baseline">

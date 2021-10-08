@@ -9,8 +9,8 @@ function Header() {
             <Flex>
                 <Box py="7" px="5">
                     <HStack spacing="50px">
-                        <Heading size="sm" color="white">Home</Heading>
-                        <Heading size="sm" color="white">Add New Spot</Heading>
+                        <Heading size="sm" color="white" _hover={{textDecoration : "underline", cursor: "Pointer"}}>Home</Heading>
+                        <Heading size="sm" color="white" _hover={{textDecoration : "underline", cursor: "Pointer"}}>Add New Spot</Heading>
                     </HStack>
                 </Box>
                 <Spacer />
@@ -20,8 +20,8 @@ function Header() {
                 <Spacer />
                 <Box p="5">
                     <HStack spacing="50px">
-                        <SearchIcon w={6} h={6} color="white"/>
-                        <Heading size="sm" color="white">Sign in</Heading>
+                        <SearchIcon w={6} h={6} color="white" _hover={{cursor: "Pointer"}}/>
+                        <Heading size="sm" color="white" _hover={{textDecoration : "underline", cursor: "Pointer"}}>Sign in</Heading>
                         <Button colorScheme="purple" borderRadius="25px">Sign up</Button>
                     </HStack>
                 </Box>

@@ -19,7 +19,7 @@ export default class Home extends Component {
             <div class = "home-background">
                 <VStack spacing="85px">
                     <Header></Header>
-                    <HStack spacing="20px">
+                    <HStack spacing="20px" flexWrap="wrap">
                         <FeaturedCard
                             color = "pink"
                             Image = {fishing_1}
