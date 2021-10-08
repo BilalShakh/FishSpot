@@ -1,19 +1,23 @@
+/* adding background color and text color*/
 .search {
     background-color: #2d2d2d;
     color: white;
 }
 
+/* adding margin to the top and bottom and also backgournd color*/
 .myform {
     margin-top: 10%;
     padding-top:20px;
     background-color: #3d3b3c;
 }
 
+/* setting theme for the form*/
 .form-control {
     color: white;
     background-color: #495665;
     border: none;
 }
+/* giving color to the text and background and adding a margin at the bottom*/
 .btn-default {
     background-color: purple;
     color: white;
@@ -21,12 +25,14 @@
     border: none;
 }
 
+/* adding margin excepth for the top*/
 form {
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 10%;
 }
 
+/* adding margin to line up heading with the form*/
 h2 {
     margin-left: 10%;
     margin-right: 10%;

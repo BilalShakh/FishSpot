@@ -1,6 +1,8 @@
+
 .result {
     background-color: #2d2d2d;
 }
+/* setting fixed size for image that is small enough on small screen and visible on large screens */
 img {
     width: 150px;
     height: 150px;	
@@ -8,6 +10,7 @@ img {
 }
 
 
+/* responsive size for screentshot, to be replaced with actual map in later parts of assignment*/
 
 .samplemap{
     width: 100%;
@@ -17,13 +20,16 @@ img {
     padding-right:10%;
 }
 
+/* align all text to center of columns */
 .col-md-3{
     text-align:center;
 }
 
+/* setting text color to white */
 h4 {
     color: white;
 }
+
 
 .mapmargin {
     margin-bottom: 20px;
