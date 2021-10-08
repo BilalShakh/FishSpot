@@ -17,8 +17,9 @@ export default class Home extends Component {
     render() {
         return (
             <div class = "home-background">
-                <VStack>
+                <VStack spacing="85px">
                     <Header></Header>
+                    {/* <Spacer />
                     <Spacer />
                     <Spacer />
                     <Spacer />
@@ -26,8 +27,7 @@ export default class Home extends Component {
                     <Spacer />
                     <Spacer />
                     <Spacer />
-                    <Spacer />
-                    <Spacer />
+                    <Spacer /> */}
                     <HStack spacing="20px">
                         <FeaturedCard
                             color = "pink"
@@ -71,17 +71,6 @@ export default class Home extends Component {
                             reviewCount = {70}
                         />
                     </HStack>
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
                     <HStack>
                         <Box maxH="400px" borderWidth="0px" borderRadius="lg" overflow="hidden">
                             <Image src={fishing_5} alt="IMAGE NOT FOUND"/>
@@ -99,18 +88,6 @@ export default class Home extends Component {
                             <Text fontSize="s" color="white" mt="20px">North Dakota, USA</Text>
                         </Box>
                     </HStack>
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
                     <Footer></Footer>
                 </VStack>
             </div>

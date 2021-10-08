@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Home from './components/Home/Home';
+import Registration from "./components/Registration/Registration";
 
 //import './App.css';
 
@@ -13,6 +14,11 @@ function App() {
           exact
           render={props => <FreeClass {...props} />}
         /> */}
+        <Route
+          path="/signup"
+          exact
+          render={props => <Registration {...props} />}
+        />
         <Redirect to="/" />
       </Switch>
     </BrowserRouter>
