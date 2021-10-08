@@ -15,112 +15,132 @@ function Result() {
   return (
     <div className="result">
       <div class="container-fluid">
-        <div class ="row">
-          <div class="col-12">
-            <img class ="samplemap" src={samplemap} alt="google map result"/>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-md-3 col-xs-6">
-            <div class = "row">
-                <div class = "col-12">
-                  <img src={spot1} alt="google map result"/>
-                </div>
-            </div>
-            <div class = "row">
-              <div class = "col-12">
-                <span>Jacky Fishingspot</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-xs-6">
-            <div class = "row">
-              <div class = "col-12">
-                <img src={spot2} alt="google map result"/>
-              </div>
-            </div>
-            <div class = "row">
-              <div class = "col-12">
-                <span> Lake Niagara</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-xs-6">
-            <div class = "row">
-              <div class = "col-12">
-                <img src={spot3} alt="google map result"/>
-              </div>
-            </div>
-            <div class = "row">
-              <div class = "col-12">
-                <span>Lake Carlisle</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-xs-6">
-            <div class = "row">
-              <div class = "col-12">
-                <img src={spot4} alt="google map result"/>
-              </div>
-            </div>
-            <div class = "row">
-              <div class = "col-12">
-                <span>Paris Pond</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center" >
-          <div class="col-md-3 col-xs-6">
-            <div class = "row">
-              <div class = "col-12">
-                <img src={spot5} alt="google map result"/>
-              </div>
-            </div>
-            <div class = "row">
-              <div class = "col-12">
-                <span>Jacky Fishing Spots</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3  col-xs-6">
-            <div class = "row">
-              <div class = "col-12">
-                <img src={spot6} alt="google map result"/>
-              </div>
-            </div>
-            <div class = "row">
-              <div class = "col-12">
-                <span>Niapenco Fishing Spots</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3  col-xs-6">
-            <div class = "row">
-              <div class = "col-12">
-                <img src={spot7} alt="google map result"/>  
-              </div>
-            </div>
-            <div class = "row">
-              <div class = "col-12">
-                <span>Jacky Fishingspot</span>  
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3  col-xs-6">
-            <div class = "row">
-              <div class = "col-12">
-                <img src={spot8} alt="google map result"/>
-              </div>
-            </div>
-            <div class = "row">
-              <div class = "col-12">
-                <span>Cooper Creek</span>
-              </div>
-            </div>
-          </div>
+      <div class ="row">
+        <div class="col-12 mapmargin">
+          <img class ="samplemap" src={samplemap} alt="google map result"/>
         </div>
       </div>
+      <div class="row justify-content-center">
+        <div class="col-md-3 col-xs-6">
+          <div class = "row">
+              <div class = "col-12">
+                <img src={spot1} alt="google map result"/>
+              </div>
+          </div>
+          <div class = "row">
+            <div class = "col-12">
+              <h4>Jacky Fishingspot</h4>
+              <h5>Rating: 3.5 </h5>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+          <div class = "row">
+            <div class = "col-12">
+              <img src={spot2} alt="google map result"/>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col-12">
+              <h4> Lake Niagara</h4>
+              <h5>Rating: 3.6 </h5>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-md-3 col-xs-6">
+          <div class = "row">
+            <div class = "col-12">
+              <img src={spot3} alt="google map result"/>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col-12">
+              <h4>Lake Carlisle</h4>
+              <h5>Rating: 4 </h5>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-md-3 col-xs-6">
+          <div class = "row">
+            <div class = "col-12">
+              <img src={spot4} alt="google map result"/>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col-12">
+              <h4>Paris Pond</h4>
+              <h5>Rating: 3 </h5>
+            </div>
+          </div>
+            
+          
+        </div>
+        
+      </div>
+      <div class="row justify-content-center" >
+        
+        <div class="col-md-3 col-xs-6">
+          <div class = "row">
+            <div class = "col-12">
+              <img src={spot5} alt="google map result"/>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col-12">
+              <h4>John's Fishing Spots</h4>
+              <h5>Rating: 5 </h5>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-md-3  col-xs-6">
+          <div class = "row">
+            <div class = "col-12">
+              <img src={spot6} alt="google map result"/>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col-12">
+              <h4>Niapenco Fishing Spots</h4>
+              <h5>Rating: 2 </h5>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-md-3  col-xs-6">
+          <div class = "row">
+            <div class = "col-12">
+              <img src={spot6} alt="google map result"/>  
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col-12">
+              <h4>Jacky Fishingspot</h4>  
+              <h5>Rating: 3 </h5>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-md-3  col-xs-6">
+          <div class = "row">
+            <div class = "col-12">
+              <img src={spot8} alt="google map result"/>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col-12">
+              <h4>Cooper Creek</h4>
+              <h5>Rating: 2.5 </h5>
+            </div>
+          </div>
+          
+        </div>
+       
+      </div>
+    </div>
     </div>
   );
 }
