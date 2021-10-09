@@ -1,13 +1,13 @@
 
 import React from "react";
 import styles from './search.module.css'; 
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+//import Header from '../Header/Header'
+//import Footer from '../Footer/Footer'
 
 function Search() {
   return (
     <div className="search">
-      <Header></Header>
+      {/* <Header></Header> */}
       <div class="container"> 
         <div class="myform">
           {/* header for the form*/}
@@ -37,7 +37,7 @@ function Search() {
           </form>
         </div>
       </div>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
     
   );
