@@ -1,7 +1,9 @@
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Home from './components/Home/Home';
 import Registration from "./components/Registration/Registration";
+import Results from "./components/Results/Results";
 import Spot from "./components/Spot/Spot";
+import Search from "./components/Search/Search";
 import { Submission } from "./components/Submission/Submission";
 
 //import './App.css';
@@ -30,6 +32,16 @@ function App() {
           path="/submission"
           exact
           render={props => <Submission {...props} />}
+        />
+        <Route
+          path="/results"
+          exact
+          render={props => <Results {...props} />}
+        />
+        <Route
+          path="/search"
+          exact
+          render={props => <Search {...props} />}
         />
         <Redirect to="/" />
       </Switch>
