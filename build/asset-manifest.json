@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d0105580.chunk.css",
+    "main.js": "/static/js/main.c47cb285.chunk.js",
+    "runtime-main.js": "/static/js/runtime-main.9a9b474b.js",
+    "static/js/2.1e6fad7f.chunk.js": "/static/js/2.1e6fad7f.chunk.js",
+    "index.html": "/index.html",
+    "static/js/2.1e6fad7f.chunk.js.LICENSE.txt": "/static/js/2.1e6fad7f.chunk.js.LICENSE.txt",
+    "static/media/fishing_1.a08d269c.jpg": "/static/media/fishing_1.a08d269c.jpg",
+    "static/media/fishing_2.bf89dfc7.jpeg": "/static/media/fishing_2.bf89dfc7.jpeg",
+    "static/media/fishing_3.84d6fe77.jpg": "/static/media/fishing_3.84d6fe77.jpg",
+    "static/media/fishing_4.d6bc01be.jpg": "/static/media/fishing_4.d6bc01be.jpg",
+    "static/media/fishing_5.6da8ec61.jpg": "/static/media/fishing_5.6da8ec61.jpg",
+    "static/media/fishing_6.643c946f.jpg": "/static/media/fishing_6.643c946f.jpg",
+    "static/media/spot_map.3e874017.PNG": "/static/media/spot_map.3e874017.PNG"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9a9b474b.js",
+    "static/js/2.1e6fad7f.chunk.js",
+    "static/css/main.d0105580.chunk.css",
+    "static/js/main.c47cb285.chunk.js"
+  ]
+}
