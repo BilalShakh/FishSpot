@@ -1,12 +1,12 @@
 
 import React from "react";
-import './search.module.css';
+import './search.css';
 //import Header from '../Header/Header'
 //import Footer from '../Footer/Footer'
 
 function Search() {
   return (
-    <div className="search">
+    <div className ="search">
       {/* <Header></Header> */}
       <div class="container"> 
         <div class="myform">
@@ -17,7 +17,7 @@ function Search() {
             <div class="form-group">
               <input type="text" placeholder="Search Term" class="form-control" id="searchterm"/>
             </div>
-            {"form-group sets the width to 100%"}
+            {/*"form-group sets the width to 100%" */}
             <div class="form-group">
                 <label for="searchrating">Search Rating</label>
                 {/* select gives a dropdown list*/}

@@ -12,7 +12,7 @@ import spot5 from '../../assets/images/spot2-3.JPG';
 import spot6 from '../../assets/images/spot3-1.JPG';
 import spot7 from '../../assets/images/spot3-2.JPG';
 import spot8 from '../../assets/images/spot4-1.JPG';
-import './result.module.css'; 
+import './result.css'; 
 
 function Result() {
   return (

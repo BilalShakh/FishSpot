@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 //import { Submission } from "./components/Submission/Submission";
 import Result from "./components/Result/Result"
 import Search from "./components/Search/Search"
-
 //import './App.css';
 
 function App() {
