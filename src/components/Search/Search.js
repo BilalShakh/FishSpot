@@ -1,7 +1,7 @@
 import React, { Component,  } from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
-import { VStack, Box, Text, FormControl, FormLabel, Input, Button, Spacer, Textarea, Select } from "@chakra-ui/react"
+import { VStack, Box, Text, FormControl, FormLabel, Input, Button, Spacer, Select } from "@chakra-ui/react"
 import './Search.css'
 
 export class Search extends Component {

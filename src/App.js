@@ -13,11 +13,6 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact render={props => <Home {...props} />} />
-        {/* <Route
-          path="/FreeClass"
-          exact
-          render={props => <FreeClass {...props} />}
-        /> */}
         <Route
           path="/signup"
           exact

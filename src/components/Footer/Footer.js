@@ -20,7 +20,7 @@ function Footer() {
                             </VStack>
                         </Box>
                         <Spacer/>
-                        <Box>
+                        <Box display={{ base: "none",  md: "flex" }}>
                             <VStack spacing="0" alignItems="baseline">
                                 <Text fontSize="xl" color="white">Quick Navigation</Text>
                                 <Text fontSize="sm" color="white" width="160px">Home</Text>
