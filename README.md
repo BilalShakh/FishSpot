@@ -2,6 +2,10 @@
 
 [Link to website](http://18.223.4.13/)
 
+[Link to result page](http://18.223.4.13/results)
+
+[Link to object page](http://18.223.4.13/spot) 
+
 ## Groupmembers:
 
     Bilal Shaikh 
