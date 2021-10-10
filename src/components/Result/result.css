@@ -22,7 +22,7 @@ img {
 
 /* align all text to center of columns */
 .col-md-3{
-    text-align:center;
+    text-align:left;
 }
 
 /* setting text color to white */
