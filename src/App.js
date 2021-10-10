@@ -12,12 +12,12 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route
-          path="/search"
+          path="/"
           exact
           component={() => <Search />}
         />
         <Route
-          path="/result"
+          path="/"
           exact
           component={() => <Result />}
         />

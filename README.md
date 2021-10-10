@@ -16,8 +16,8 @@
     As we use react, we are allowed to not have the html files in the project spec as specified in the announcement oct 08.
 
     Hence we have:
-    Search.jsx to substitute for search.html
-    Result.jsx to substitute for result_sample.html
+    Search.js to substitute for search.html
+    Result.js to substitute for result_sample.html
     Spot.js to substitute for individual_sample.html
     Submission.js to substitute for submission.html
     Registration.js to substiture for registration.html
