@@ -5,7 +5,16 @@ import Review from './Review'
 import { VStack, HStack, Box, Text, Spacer, Image, Flex, StackDivider } from "@chakra-ui/react"
 import './Spot.css'
 import fishing_6 from '../../Assets/fishing_6.jpg'
-import spot_map from '../../Assets/spot_map.PNG'
+// import spot_map from '../../Assets/spot_map.PNG'
+import MapSection from './Map' 
+import './Map.css'
+
+
+const location = {
+    text: 'Credit River, Mississauga, ON',
+    lat: 43.5557682874319,
+    lng: -79.60028572660218
+  }
 
 export default class Spot extends Component {
     render() {
@@ -16,6 +25,8 @@ export default class Spot extends Component {
                     <HStack maxW="50%" >
                         <Box borderWidth="0px" borderRadius="lg" overflow="hidden">
                             <Image src={fishing_6} alt="IMAGE NOT FOUND"/>
+                            
+                            
                         </Box>
                         <Spacer />
                         <VStack p="2" alignSelf="flex-start" maxW="40%">
@@ -36,8 +47,9 @@ export default class Spot extends Component {
                     </HStack>
                     <VStack>
                         <Text fontSize="130%" color="white" fontWeight="thin" alignSelf="flex-start">Mississauga, Ontario</Text>
-                        <Box borderWidth="0px" borderRadius="lg" overflow="hidden" maxW="100%">
-                            <Image src={spot_map} alt="IMAGE NOT FOUND"/>
+                        <Box borderWidth="0px" borderRadius="lg" overflow="hidden" width="80vw">
+                            {/*<Image src={spot_map} alt="IMAGE NOT FOUND"/>*/}
+                                <MapSection location={location} zoomLevel={17}></MapSection>
                         </Box>
                     </VStack>
                     <VStack
