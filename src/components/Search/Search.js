@@ -3,6 +3,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import { VStack, Box, Text, FormControl, FormLabel, Input, Button, Spacer, Select } from "@chakra-ui/react"
 import './Search.css'
+import { Link } from "@chakra-ui/react"
 
 export class Search extends Component {
     render() {
@@ -24,18 +25,26 @@ export class Search extends Component {
                                         <FormLabel color="white">Search Category</FormLabel>
                                         <Select bg="gray.600" color="white" borderWidth="0px" >
                                             <option class="option-select">All</option>
-                                            <option class="option-select">Rating</option>
-                                            <option class="option-select">Name</option>
+                                            <option class="option-select">1 Star</option>
+                                            <option class="option-select">2 Star</option>
+                                            <option class="option-select">3 Star</option>
+                                            <option class="option-select">4 Star</option>
+                                            <option class="option-select">5 Star</option>
+                                            
                                         </Select>
                                     </FormControl>
-                                
+                                   
                                     <Button
                                         colorScheme="purple"
                                         type="submit"
                                         alignSelf="flex-start"
                                     >
-                                        Submit
+                                        <Link  href="/Results">
+                                                Submit
+                                        </Link>
                                     </Button>
+                                    
+                                    
                                 </VStack>
                             </form>
                         </VStack>
