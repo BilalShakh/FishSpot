@@ -2,9 +2,15 @@
 
 [Link to website](http://18.223.4.13/)
 
-[Link to result page](http://18.223.4.13/results)
+[Link to search form page](http://18.223.4.13/search)
 
-[Link to object page](http://18.223.4.13/spot) 
+[Link to sample results page](http://18.223.4.13/results)
+
+[Link to sample individual object page](http://18.223.4.13/spot) 
+
+[Link to object submission page](http://18.223.4.13/submission) 
+
+[Link to user registration page](http://18.223.4.13/signup) 
 
 ## Groupmembers:
 
