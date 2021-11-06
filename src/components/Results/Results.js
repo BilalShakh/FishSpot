@@ -5,10 +5,28 @@ import fishing_1 from '../../Assets/fishing_1.jpg'
 import fishing_2 from '../../Assets/fishing_2.jpeg'
 import fishing_3 from '../../Assets/fishing_3.jpg'
 import fishing_4 from '../../Assets/fishing_4.jpg'
-import spot_map from '../../Assets/spot_map.PNG'
-import { VStack, HStack, Box, Image } from "@chakra-ui/react"
+import { VStack, HStack, Box } from "@chakra-ui/react"
 import Card from './Card'
+import ResultsMap from './ResultsMap' 
 import "./Results.css"
+
+const locations = {
+    "first": {
+        text: 'Credit River, Mississauga, ON', 
+        lat: 43.5557682874319, 
+        lng: -79.60028572660218
+    },
+    "1": {
+        text: 'Cooksville Creek',
+        lat: 43.56416169111711, 
+        lng: -79.56491222843655
+    },
+    "2": {
+        text: 'Mimico Creek',
+        lat: 43.623089818162995, 
+        lng: -79.48015828092811
+    } 
+}
 
 export default class Results extends Component {
     static propTypes = {
@@ -21,8 +39,9 @@ export default class Results extends Component {
                     <Header></Header>
                     <VStack spacing="40px">
                         
-                        <Box borderWidth="0px" borderRadius="lg" overflow="hidden" maxW="100%">
-                            <Image src={spot_map} alt="IMAGE NOT FOUND"/>
+                        <Box borderWidth="0px" borderRadius="lg" overflow="hidden" width="65vw">
+                            {/* <Image src={spot_map} alt="IMAGE NOT FOUND"/> */}
+                            <ResultsMap locations={locations} zoomLevel={12}></ResultsMap>
                         </Box>
                         <HStack spacing="20px" flexWrap="wrap">
                             <Card
