@@ -1,5 +1,5 @@
 import React from 'react'
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api"
+import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 
 
 
@@ -21,6 +21,8 @@ const mapContainerStyle = {
 
 
 export default function ResultsMap({locations, zoomLevel}) {
+    const [selected, setSelected] = React.useState(null);
+
     //console.log(location, zoomLevel);
     const {isLoaded, loadError} = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
@@ -38,7 +40,27 @@ export default function ResultsMap({locations, zoomLevel}) {
                 zoom={zoomLevel} 
                 center={{ lat: locations.first.lat, lng: locations.first.lng }}
             >
-                {arr.map(item => <Marker position={{ lat: item.lat, lng: item.lng }}/>)}
+                {arr.map(item => 
+                        <Marker 
+                            position={{ lat: item.lat, lng: item.lng }}
+                            onClick={() => {
+                                setSelected(null);
+                                setSelected(item);
+                            }}
+                        />
+                    )
+                }
+
+                {selected ? 
+                    <InfoWindow 
+                        position={{lat: selected.lat+ 0.001, lng: selected.lng}} 
+                        onCloseClick={()=>{
+                            setSelected(null);
+                        }}
+                    >
+                        <h2>{selected.text}</h2>
+                    </InfoWindow> : null
+                }
 
             </GoogleMap>
         </div>
