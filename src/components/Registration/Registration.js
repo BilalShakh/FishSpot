@@ -1,10 +1,54 @@
-import React, { Component,  } from 'react'
+import React from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import { VStack, HStack, Box, Text, FormControl, FormLabel, Input, Button, Spacer } from "@chakra-ui/react"
 import './Registration.css'
 
-export class Registration extends Component {
+
+export class Registration extends React.Component {
+    state={
+        FirstName:"",
+        LastName:"",
+        Email:"",
+        Username:"",
+        PasswordI:"",
+        PasswordC:""
+    };
+
+    //changes the various states that hold important submission info
+    generalChangeHandler = (event) => {
+        let nam = event.target.id;
+        let val = event.target.value;
+        this.setState({ [nam]: val });
+    }
+
+    //Validates the inputs
+    handleSubmit = (event) => {
+        var outputStr = "";
+
+        if (!(/^[a-zA-Z]+$/.test(this.state.FirstName))){
+            outputStr += "First name is invalid, please include only letters in your Firstname.";
+        }
+
+        if (!(/^[a-zA-Z]+$/.test(this.state.LastName))){
+            outputStr += "Last name is invalid, please include only letters in your lastname.";
+        }
+
+        if (!(/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(this.state.Email))){
+            outputStr += "Email is invalid, please enter a valid email. ";
+        }
+
+        if (this.state.PasswordI !== this.state.PasswordC || !(/^[a-zA-Z0-9!@#$%^&*]{5,20}$/.test(this.state.PasswordC))){
+            outputStr += "Password is invalid, please enter a password with 5 to 20 characters consisting of only letter or number or these special character !@#$%^&*. "
+        }
+
+        if (outputStr.length > 0){
+            alert(outputStr);
+        } else{
+            alert("Account Successfully created");
+        }
+    }
+
     render() {
         return (
             <div class="registration-background">
@@ -17,37 +61,89 @@ export class Registration extends Component {
                             <form>
                                 <VStack spacing="15px">
                                     <HStack spacing="15px" >
-                                        <FormControl w="320px" id="first-name" isRequired>
+                                        <FormControl w="320px" id="FirstNameFC" isRequired>
                                             <FormLabel color="white">First name</FormLabel>
-                                            <Input bg="gray.600" borderWidth="0px" placeholder="First name" textColor="white"/>
+                                            <Input 
+                                                id="FirstName"
+                                                bg="gray.600" 
+                                                borderWidth="0px" 
+                                                placeholder="First name" 
+                                                textColor="white"
+                                                value={this.state.FirstName}
+                                                onChange={this.generalChangeHandler} 
+                                            />
                                         </FormControl>
-                                        <FormControl w="320px" id="last-name" isRequired>
+                                        <FormControl w="320px" id="LastNameFC" isRequired>
                                             <FormLabel color="white">Last name</FormLabel>
-                                            <Input bg="gray.600" borderWidth="0px" placeholder="Last name" textColor="white"/>
+                                            <Input 
+                                                id="LastName"
+                                                bg="gray.600" 
+                                                borderWidth="0px" 
+                                                placeholder="Last name" 
+                                                textColor="white"
+                                                value={this.state.LastName}
+                                                onChange={this.generalChangeHandler} 
+                                            />
                                         </FormControl>
                                     </HStack>
-                                    <FormControl w="655px" id="email" isRequired>
+                                    <FormControl w="655px" id="EmailFC" isRequired>
                                         <FormLabel color="white">Email</FormLabel>
-                                        <Input type="email" bg="gray.600" borderWidth="0px" placeholder="Email" textColor="white"/>
+                                        <Input 
+                                            id="Email"
+                                            type="email" 
+                                            bg="gray.600" 
+                                            borderWidth="0px" 
+                                            placeholder="Email" 
+                                            textColor="white"
+                                            value={this.state.Email}
+                                            onChange={this.generalChangeHandler} 
+                                        />
                                     </FormControl>
-                                    <FormControl w="655px" id="username" isRequired>
+                                    <FormControl w="655px" id="UsernameFC" isRequired>
                                         <FormLabel color="white">Username</FormLabel>
-                                        <Input bg="gray.600" borderWidth="0px" placeholder="Username" textColor="white"/>
+                                        <Input 
+                                            id="Username"
+                                            bg="gray.600" 
+                                            borderWidth="0px" 
+                                            placeholder="Username" 
+                                            textColor="white"
+                                            value={this.state.Username}
+                                            onChange={this.generalChangeHandler} 
+                                        />
                                     </FormControl>
                                     <HStack spacing="15px" >
                                         <FormControl w="320px" id="passwordInitial" isRequired>
                                             <FormLabel color="white">Password</FormLabel>
-                                            <Input type="password" bg="gray.600" borderWidth="0px" placeholder="Password" textColor="white"/>
+                                            <Input 
+                                                id="PasswordI"
+                                                type="password" 
+                                                bg="gray.600" 
+                                                borderWidth="0px" 
+                                                placeholder="Password" 
+                                                textColor="white"
+                                                value={this.state.PasswordI}
+                                                onChange={this.generalChangeHandler} 
+                                            />
                                         </FormControl>
                                         <FormControl w="320px" id="passwordConfirm" isRequired>
                                             <FormLabel color="white"></FormLabel>
-                                            <Input type="password" bg="gray.600" borderWidth="0px" placeholder="Confrim Password" textColor="white"/>
+                                            <Input 
+                                                id="PasswordC"
+                                                type="password" 
+                                                bg="gray.600" 
+                                                borderWidth="0px" 
+                                                placeholder="Confrim Password" 
+                                                textColor="white"
+                                                value={this.state.PasswordC}
+                                                onChange={this.generalChangeHandler} 
+                                            />
                                         </FormControl>
                                     </HStack>
                                     <Button
                                         colorScheme="purple"
                                         type="submit"
                                         alignSelf="flex-start"
+                                        onClick={this.handleSubmit}
                                     >
                                         Submit
                                     </Button>
