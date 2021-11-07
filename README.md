@@ -10,7 +10,9 @@
 
 [Link to object submission page](https://www.compsci4ww3bilalyichun.com/submission) 
 
-[Link to user registration page](https://www.compsci4ww3bilalyichun.com/signup) 
+[Link to user registration page](https://www.compsci4ww3bilalyichun.com/signup)  
+
+[Link to user sign in page](https://www.compsci4ww3bilalyichun.com/signin) 
 
 ## Groupmembers:
 
