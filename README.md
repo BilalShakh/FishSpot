@@ -1,16 +1,16 @@
 # 4WW3Project
 
-[Link to website](http://18.223.4.13/)
+[Link to website](https://www.compsci4ww3bilalyichun.com)
 
-[Link to search form page](http://18.223.4.13/search)
+[Link to search form page](https://www.compsci4ww3bilalyichun.com/search)
 
-[Link to sample results page](http://18.223.4.13/results)
+[Link to sample results page](https://www.compsci4ww3bilalyichun.com/results)
 
-[Link to sample individual object page](http://18.223.4.13/spot) 
+[Link to sample individual object page](https://www.compsci4ww3bilalyichun.com/spot) 
 
-[Link to object submission page](http://18.223.4.13/submission) 
+[Link to object submission page](https://www.compsci4ww3bilalyichun.com/submission) 
 
-[Link to user registration page](http://18.223.4.13/signup) 
+[Link to user registration page](https://www.compsci4ww3bilalyichun.com/signup) 
 
 ## Groupmembers:
 
@@ -33,5 +33,15 @@
     Registration.js to substiture for registration.html
 
 
-
+## origin of images:
+    fishing_1   Andy Best, https://www.flickr.com/photos/andrewwbest/ 
     
+    fishing_2   Markus Spiske/ Pexels
+
+    fishing_3   Outdoor Canada https://www.outdoorcanada.ca/20-hot-spots-for-atlantic-salmon-in-newfoundland-and-labrador/
+
+    fishing_4   Joe Cermele https://www.fieldandstream.com/authors/joe-cermele/
+
+    fishing_5 Strik And Catch https://strikeandcatch.com/ice-fishing-on-lake-nipissing/
+
+    fishing_6 google image archived at https://lh3.googleusercontent.com/aRi1086LUrMGlE_qv20cUOLJlf47MT4Sq6b2WplqHtUyUHJGFZfFXeIs0ppqTHoQB-fkWNo=s128

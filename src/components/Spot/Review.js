@@ -2,6 +2,7 @@ import React from 'react'
 import { VStack, Text, HStack, Avatar, Flex, Spacer } from "@chakra-ui/react"
 import { StarIcon } from '@chakra-ui/icons'
 
+{/* function to generate a review given the name, rating, and user's description of the fishspot*/}
 function Review(props) {
     return (
         <HStack justifyItems="baseline" alignSelf="baseline" w="100%">

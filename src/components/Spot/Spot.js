@@ -7,6 +7,7 @@ import './Spot.css'
 import fishing_6 from '../../Assets/fishing_6.jpg'
 import ResultsMap from '../Results/ResultsMap' 
 
+{/* location of the sample individual object*/}
 const location = {
     "first": {
         text: 'Credit River, Mississauga, ON', 
@@ -21,12 +22,14 @@ export default class Spot extends Component {
                 <VStack spacing="80px">
                     <Header />
                     <HStack maxW="50%" >
+                        {/* image for fish spot*/}
                         <Box borderWidth="0px" borderRadius="lg" overflow="hidden">
                             <Image src={fishing_6} alt="IMAGE NOT FOUND"/>
                             
                             
                         </Box>
                         <Spacer />
+                        {/* name and discription for the fishspot*/}
                         <VStack p="2" alignSelf="flex-start" maxW="40%">
                             <Text fontSize="180%" color="white" fontWeight="bold" alignSelf="flex-start">Credit River</Text>
                             <Text fontSize="100%"  color="white" noOfLines={[1,2,3,4,11,12]}  mt="20px">
@@ -46,9 +49,11 @@ export default class Spot extends Component {
                     <VStack>
                         <Text fontSize="130%" color="white" fontWeight="thin" alignSelf="flex-start">Mississauga, Ontario</Text>
                         <Box borderWidth="0px" borderRadius="lg" overflow="hidden" width="85vw">
+                            {/* inserting map for object*/}
                             <ResultsMap locations={location} zoomLevel={17}></ResultsMap>
                         </Box>
                     </VStack>
+                    {/* section for user reviews*/}
                     <VStack
                         divider={<StackDivider borderColor="gray.500" width="80%" alignSelf="center"/>}
                         w="80%"
