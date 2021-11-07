@@ -6,6 +6,7 @@ class UserPosition extends Component {
       longitude: 'unknown',
    }
    componentDidMount = () => {
+      {/* find the location of the user*/}
       navigator.geolocation.getCurrentPosition(
          (position) => {
             const latitude = position.coords.latitude;
@@ -18,7 +19,10 @@ class UserPosition extends Component {
          { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
       );
    }
+
+
    render() {
+   {/* the text to be displayed to the user which contains their location*/}
       return (
             <div>
               <p >Latitude: {this.state.latitude}  Longitude: {this.state.longitude}</p>
