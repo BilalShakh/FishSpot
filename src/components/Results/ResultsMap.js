@@ -2,7 +2,7 @@ import React from 'react'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 
 
-
+//Converts JSON object to an array
 function getArr(object){
     var arr = []
     Object.keys(object).forEach(function(key){
@@ -12,7 +12,7 @@ function getArr(object){
 }
 
 
-
+//Google map's styling
 const mapContainerStyle = {
     width: "100vw",
     height: "60vh"
@@ -23,11 +23,13 @@ const mapContainerStyle = {
 export default function ResultsMap({locations, zoomLevel}) {
     const [selected, setSelected] = React.useState(null);
 
-    //console.log(location, zoomLevel);
+    //Wrapper for loading up google maps into a react application
     const {isLoaded, loadError} = useLoadScript({
+        //using a local .env file to store api key for security sake
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
     });
 
+    //Makes sure that the map is loaded up
     if (loadError) return "Error loading maps";
     if (!isLoaded) return "Loading Maps";
 
@@ -40,6 +42,7 @@ export default function ResultsMap({locations, zoomLevel}) {
                 zoom={zoomLevel} 
                 center={{ lat: locations.first.lat, lng: locations.first.lng }}
             >
+                {/*Creates a marker for each of the given locations to this component*/}
                 {arr.map(item => 
                         <Marker 
                             position={{ lat: item.lat, lng: item.lng }}
@@ -51,9 +54,10 @@ export default function ResultsMap({locations, zoomLevel}) {
                     )
                 }
 
+                {/*Creates an information window for each of the markers on the map*/}
                 {selected ? 
                     <InfoWindow 
-                        position={{lat: selected.lat+ 0.001, lng: selected.lng}} 
+                        position={{lat: selected.lat+ 0.002, lng: selected.lng}} 
                         onCloseClick={()=>{
                             setSelected(null);
                         }}
