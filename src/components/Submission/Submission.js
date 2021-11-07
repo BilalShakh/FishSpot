@@ -4,12 +4,15 @@ import Footer from '../Footer/Footer'
 import fishing_pic from '../../Assets/fishing_6.jpg'
 import { VStack, HStack, Box, Text, FormControl, FormLabel, Input, Button, Spacer, Textarea, FormHelperText, Image } from "@chakra-ui/react"
 import './Submission.css'
+import UserPosition from './locateposition'
+
+
 
 export class Submission extends Component {
     state = {
         image: fishing_pic
     };
-
+   
     render() {
         return (
             <div class="submission-background">
@@ -36,14 +39,23 @@ export class Submission extends Component {
                                         <HStack spacing="15px" >
                                             <FormControl w="50%" id="location-longitude" isRequired>
                                                 <FormLabel color="white">Location</FormLabel>
-                                                <Input type="number" bg="gray.600" borderWidth="0px" placeholder="Longitude" textColor="white"/>
+                                                <Input type="number" required bg="gray.600" borderWidth="0px" placeholder="Longitude" textColor="white"/>
+                                                
                                             </FormControl>
                                             <FormControl w="50%" id="location-latitude" isRequired>
                                                 <FormLabel color="white"></FormLabel>
-                                                <Input type="number" bg="gray.600" borderWidth="0px" placeholder="Latitude" textColor="white"/>
+                                                <Input type="number" required bg="gray.600" borderWidth="0px" placeholder="Latitude" textColor="white"/>                  
                                             </FormControl>
+                                            
+                                            
+                                        
                                         </HStack>
-                                        <FormControl w="50%" id="spot-image" alignSelf="baseline" isRequired>
+
+                                        <Text color="white">Note that Your current position is:</Text>
+
+                                        <Text color="white"> <UserPosition></UserPosition></Text>
+
+                                        <FormControl w="100%" id="spot-image" alignSelf="baseline" isRequired>
                                             <FormLabel color="white">Image</FormLabel>
                                             <Input type="file" bg="#444242" borderWidth="0px" color="white"/>
                                             <FormHelperText>Please upload your Spot's Image</FormHelperText>
