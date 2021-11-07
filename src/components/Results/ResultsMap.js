@@ -15,7 +15,7 @@ function getArr(object){
 //Google map's styling
 const mapContainerStyle = {
     width: "100vw",
-    height: "60vh"
+    height: "100vh"
 };
 
 
@@ -57,7 +57,7 @@ export default function ResultsMap({locations, zoomLevel}) {
                 {/*Creates an information window for each of the markers on the map*/}
                 {selected ? 
                     <InfoWindow 
-                        position={{lat: selected.lat+ 0.002, lng: selected.lng}} 
+                        position={{lat: selected.lat+0.0002, lng: selected.lng}} 
                         onCloseClick={()=>{
                             setSelected(null);
                         }}

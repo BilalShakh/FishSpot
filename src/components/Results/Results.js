@@ -39,7 +39,7 @@ export default class Results extends Component {
                     <Header></Header>
                     <VStack spacing="40px">
                         
-                        <Box borderWidth="0px" borderRadius="lg" overflow="hidden" width="65vw">
+                        <Box borderWidth="0px" borderRadius="lg" overflow="hidden" width="65vw" height="60vh">
                             {/* <Image src={spot_map} alt="IMAGE NOT FOUND"/> */}
                             <ResultsMap locations={locations} zoomLevel={12}></ResultsMap>
                         </Box>
