@@ -5,6 +5,7 @@ import Results from "./components/Results/Results";
 import Spot from "./components/Spot/Spot";
 import Search from "./components/Search/Search";
 import { Submission } from "./components/Submission/Submission";
+import SignIn from "./components/SignIn/SignIn";
 
 //import './App.css';
 
@@ -37,6 +38,11 @@ function App() {
           path="/search"
           exact
           render={props => <Search {...props} />}
+        />
+        <Route
+          path="/signin"
+          exact
+          render={props => <SignIn {...props} />}
         />
         <Redirect to="/" />
       </Switch>

@@ -5,9 +5,9 @@ import Review from './Review'
 import { VStack, HStack, Box, Text, Spacer, Image, Flex, StackDivider } from "@chakra-ui/react"
 import './Spot.css'
 import fishing_6 from '../../Assets/fishing_6.jpg'
-import ResultsMap from '../Results/ResultsMap' 
+import Map from '../Results/Map' 
 
-{/* location of the sample individual object*/}
+// location of the sample individual object
 const location = {
     "first": {
         text: 'Credit River, Mississauga, ON', 
@@ -50,7 +50,7 @@ export default class Spot extends Component {
                         <Text fontSize="130%" color="white" fontWeight="thin" alignSelf="flex-start">Mississauga, Ontario</Text>
                         <Box borderWidth="0px" borderRadius="lg" overflow="hidden" width="85vw">
                             {/* inserting map for object*/}
-                            <ResultsMap locations={location} zoomLevel={17}></ResultsMap>
+                            <Map locations={location} zoomLevel={17}></Map>
                         </Box>
                     </VStack>
                     {/* section for user reviews*/}

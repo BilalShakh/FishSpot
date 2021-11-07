@@ -6,7 +6,6 @@ import './Search.css'
 import { Link } from "@chakra-ui/react"
 
 export class Search extends React.Component {
-
     state={
         searchName: true,
         searchRating: false,
@@ -16,6 +15,7 @@ export class Search extends React.Component {
         latitude: null
     };
 
+    //Handles the changes in radio buttons to allow the user to search what they want to.
     handleRadioClick = (event) => {
         if (this.state.searchName) {
             this.setState({searchName: false});
@@ -33,6 +33,7 @@ export class Search extends React.Component {
         this.setState({ [nam]: val });
     }
 
+    //Gets location with the built in geolocation api
     getLocation = () => {
         if (!navigator.geolocation) {
           console.log('Geolocation is not supported by your browser');

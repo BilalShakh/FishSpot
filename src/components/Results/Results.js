@@ -7,9 +7,10 @@ import fishing_3 from '../../Assets/fishing_3.jpg'
 import fishing_4 from '../../Assets/fishing_4.jpg'
 import { VStack, HStack, Box } from "@chakra-ui/react"
 import Card from './Card'
-import ResultsMap from './ResultsMap' 
+import Map from './Map' 
 import "./Results.css"
 
+//example of an output from backend api
 const locations = {
     "first": {
         text: 'Credit River, Mississauga, ON', 
@@ -41,7 +42,7 @@ export default class Results extends Component {
                         
                         <Box borderWidth="0px" borderRadius="lg" overflow="hidden" width="65vw" height="60vh">
                             {/* <Image src={spot_map} alt="IMAGE NOT FOUND"/> */}
-                            <ResultsMap locations={locations} zoomLevel={12}></ResultsMap>
+                            <Map locations={locations} zoomLevel={12}></Map>
                         </Box>
                         <HStack spacing="20px" flexWrap="wrap">
                             <Card

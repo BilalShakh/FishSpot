@@ -20,7 +20,9 @@ const mapContainerStyle = {
 
 
 
-export default function ResultsMap({locations, zoomLevel}) {
+export default function Map(props) {
+    let locations = props.locations;
+    let zoomLevel = props.zoomLevel;
     const [selected, setSelected] = React.useState(null);
 
     //Wrapper for loading up google maps into a react application

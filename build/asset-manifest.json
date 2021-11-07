@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.d0105580.chunk.css",
-    "main.js": "/static/js/main.ef24f4cd.chunk.js",
+    "main.css": "/static/css/main.7ee2457e.chunk.css",
+    "main.js": "/static/js/main.48445989.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.9a9b474b.js",
-    "static/js/2.3120bb50.chunk.js": "/static/js/2.3120bb50.chunk.js",
+    "static/js/2.f983ca75.chunk.js": "/static/js/2.f983ca75.chunk.js",
     "index.html": "/index.html",
-    "static/js/2.3120bb50.chunk.js.LICENSE.txt": "/static/js/2.3120bb50.chunk.js.LICENSE.txt",
+    "static/js/2.f983ca75.chunk.js.LICENSE.txt": "/static/js/2.f983ca75.chunk.js.LICENSE.txt",
     "static/media/fishing_1.a08d269c.jpg": "/static/media/fishing_1.a08d269c.jpg",
     "static/media/fishing_2.bf89dfc7.jpeg": "/static/media/fishing_2.bf89dfc7.jpeg",
     "static/media/fishing_3.84d6fe77.jpg": "/static/media/fishing_3.84d6fe77.jpg",
@@ -15,8 +15,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.9a9b474b.js",
-    "static/js/2.3120bb50.chunk.js",
-    "static/css/main.d0105580.chunk.css",
-    "static/js/main.ef24f4cd.chunk.js"
+    "static/js/2.f983ca75.chunk.js",
+    "static/css/main.7ee2457e.chunk.css",
+    "static/js/main.48445989.chunk.js"
   ]
 }

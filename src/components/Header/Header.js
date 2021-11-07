@@ -32,7 +32,11 @@ function Header() {
                         <Link to="/search">
                             <SearchIcon w={6} h={6} color="white" _hover={{cursor: "Pointer"}}/> 
                         </Link>
-                        <Heading size="sm" color="white" _hover={{textDecoration : "underline", cursor: "Pointer"}}>Sign in</Heading>
+                        <Heading size="sm" color="white" _hover={{textDecoration : "underline", cursor: "Pointer"}}>
+                            <Link to="/signin">
+                                Sign In
+                            </Link>
+                        </Heading>
                         <Button colorScheme="purple" borderRadius="25px">
                             <Link to="/signup">
                                 Sign up
@@ -59,9 +63,11 @@ function Header() {
                                     Add New Spot
                                 </MenuItem>
                             </Link>
-                            <MenuItem >
-                                Sign in
-                            </MenuItem>
+                            <Link to="/signin">
+                                <MenuItem >
+                                    Sign in
+                                </MenuItem>
+                            </Link>
                             <Link to="/signup">
                                 <MenuItem>
                                     Sign up
