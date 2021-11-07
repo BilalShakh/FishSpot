@@ -43,3 +43,5 @@
     fishing_4   Joe Cermele https://www.fieldandstream.com/authors/joe-cermele/
 
     fishing_5 Strik And Catch https://strikeandcatch.com/ice-fishing-on-lake-nipissing/
+
+    fishing_6 google image archived at https://lh3.googleusercontent.com/aRi1086LUrMGlE_qv20cUOLJlf47MT4Sq6b2WplqHtUyUHJGFZfFXeIs0ppqTHoQB-fkWNo=s128
