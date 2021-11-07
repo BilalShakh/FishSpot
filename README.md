@@ -1,16 +1,16 @@
 # 4WW3Project
 
-[Link to website](http://18.223.4.13/)
+[Link to website](https://www.compsci4ww3bilalyichun.com)
 
-[Link to search form page](http://18.223.4.13/search)
+[Link to search form page](https://www.compsci4ww3bilalyichun.com/search)
 
-[Link to sample results page](http://18.223.4.13/results)
+[Link to sample results page](https://www.compsci4ww3bilalyichun.com/results)
 
-[Link to sample individual object page](http://18.223.4.13/spot) 
+[Link to sample individual object page](https://www.compsci4ww3bilalyichun.com/spot) 
 
-[Link to object submission page](http://18.223.4.13/submission) 
+[Link to object submission page](https://www.compsci4ww3bilalyichun.com/submission) 
 
-[Link to user registration page](http://18.223.4.13/signup) 
+[Link to user registration page](https://www.compsci4ww3bilalyichun.com/signup) 
 
 ## Groupmembers:
 
