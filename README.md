@@ -33,5 +33,13 @@
     Registration.js to substiture for registration.html
 
 
-
+## origin of images:
+    fishing_1   Andy Best, https://www.flickr.com/photos/andrewwbest/ 
     
+    fishing_2   Markus Spiske/ Pexels
+
+    fishing_3   Outdoor Canada https://www.outdoorcanada.ca/20-hot-spots-for-atlantic-salmon-in-newfoundland-and-labrador/
+
+    fishing_4   Joe Cermele https://www.fieldandstream.com/authors/joe-cermele/
+
+    fishing_5 Strik And Catch https://strikeandcatch.com/ice-fishing-on-lake-nipissing/
