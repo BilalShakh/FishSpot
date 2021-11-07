@@ -14,7 +14,7 @@
 
 [Link to user sign in page](https://www.compsci4ww3bilalyichun.com/signin) 
 
-[Link to github](https://github.com/BilalShakh/4WW3Project)
+[Link to gith repo](https://github.com/BilalShakh/4WW3Project)
 
 ## Groupmembers:
 
