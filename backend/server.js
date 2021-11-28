@@ -12,12 +12,42 @@ const pool = mysql.createPool({
   database: process.env.MYSQL_DATABASE,
 })
 
+async function getLogInDetails(){
+  const [ Email, Password ] = await pool.promise().query(
+    "Select Email, Password FROM UserAccounts"
+  );
+  let details = [];
+  for (let i = 0; i < Email.length; i++){
+    details[i] = [Email[i], Password[i]];
+  }
+  return details;
+}
+
 pool.getConnection( (err, connection)=> {
   if (err){
-    console.log(err)
+    console.log(err);
   }else {
-  console.log ("DB connected successful: " + connection.threadId)
+    console.log ("DB connected successful: " + connection.threadId);
+    let details = await getLogInDetails();
+    console.log(details);
   }
+})
+
+app.post('/login', (req, res) => {
+  let details = await getLogInDetails();
+  for (let detail in details){
+    if (detail[0] === req.body.Email){
+      if (detail[1] === req.body.Password){
+        res.send(true);
+        res.end();
+      }else {
+        res.send(false);
+        res.end();
+      }
+    }
+  }
+  res.send(false);
+  res.end();
 })
 
 const port = process.env.PORT || 8080
