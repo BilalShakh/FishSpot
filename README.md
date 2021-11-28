@@ -10,7 +10,11 @@
 
 [Link to object submission page](https://www.compsci4ww3bilalyichun.com/submission) 
 
-[Link to user registration page](https://www.compsci4ww3bilalyichun.com/signup) 
+[Link to user registration page](https://www.compsci4ww3bilalyichun.com/signup)  
+
+[Link to user sign in page](https://www.compsci4ww3bilalyichun.com/signin) 
+
+[Link to gith repo](https://github.com/BilalShakh/4WW3Project)
 
 ## Groupmembers:
 
