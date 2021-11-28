@@ -13,12 +13,12 @@ const pool = mysql.createPool({
 })
 
 async function getLogInDetails(){
-  const [ Email, Password ] = await pool.promise().query(
+  const [ Data ] = await pool.promise().query(
     "Select Email, Password FROM UserAccounts"
   );
   let details = [];
-  for (let i = 0; i < Email.length; i++){
-    details[i] = [Email[i], Password[i]];
+  for (let i = 0; i < Data.length; i++){
+    details[i] = [Data[i].Email, Data[i].Password];
   }
   return details;
 }
@@ -28,12 +28,10 @@ pool.getConnection( (err, connection)=> {
     console.log(err);
   }else {
     console.log ("DB connected successful: " + connection.threadId);
-    let details = await getLogInDetails();
-    console.log(details);
   }
 })
 
-app.post('/login', (req, res) => {
+app.post('/login', async (req, res) => {
   let details = await getLogInDetails();
   for (let detail in details){
     if (detail[0] === req.body.Email){
