@@ -105,7 +105,6 @@ export default function SignIn() {
                                 
                                 <Button
                                     colorScheme="purple"
-                                    type="submit"
                                     alignSelf="flex-start"
                                     onClick={handleSubmit}
                                 >
