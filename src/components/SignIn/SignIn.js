@@ -1,21 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import { VStack, Box, Text, FormControl, FormLabel, Input, Button, Spacer, useToast } from "@chakra-ui/react"
 import './SignIn.css'
 import { Link } from "@chakra-ui/react"
-import { useHistory } from 'react-router-dom'
+//import { useHistory } from 'react-router-dom'
 import { AuthContext } from '../AuthContext'
+import axios from "axios";
 
 export default function SignIn() {
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
-    let history = useHistory();
+    //let history = useHistory();
     const { setAuthState } = useContext(AuthContext);
     const toast = useToast();
 
     //changes the various states that hold important submission info
-    generalChangeHandler = (event) => {
+    const generalChangeHandler = (event) => {
         let nam = event.target.id;
         let val = event.target.value;
         switch (nam){
@@ -30,7 +31,7 @@ export default function SignIn() {
 
     const login = () => {
         const data = { Email: Email, Password: Password };
-        axios.post("http://localhost:8080/auth/login", data).then((response) => {
+        axios.post(process.env.API_LINK+"/auth/login", data).then((response) => {
           if (!response.data.valid) {
             toast({
                 title: `Invalid Email or Password Entered`,
@@ -92,12 +93,12 @@ export default function SignIn() {
                             <VStack spacing="70px" alignSelf="flex-start">
                                 <FormControl w="100%" isRequired>
                                     <FormLabel color="white">Email</FormLabel>
-                                    <Input bg="gray.600" borderWidth="0px" placeholder="Email" type="email" textColor="white" id="Email" value={Email} onChange={this.generalChangeHandler}/>
+                                    <Input bg="gray.600" borderWidth="0px" placeholder="Email" type="email" textColor="white" id="Email" value={Email} onChange={generalChangeHandler}/>
                                 </FormControl>
                                 
                                 <FormControl w="100%" isRequired>
                                     <FormLabel color="white">Password</FormLabel>
-                                    <Input bg="gray.600" borderWidth="0px" placeholder="Password" type="password" textColor="white" id="Password" value={Password} onChange={this.generalChangeHandler}/>
+                                    <Input bg="gray.600" borderWidth="0px" placeholder="Password" type="password" textColor="white" id="Password" value={Password} onChange={generalChangeHandler}/>
                                 </FormControl>
 
 
