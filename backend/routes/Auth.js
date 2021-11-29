@@ -49,15 +49,17 @@ router.post('/login', async (req, res) => {
     const email = req.body.Email;
     const pass = req.body.Password;
     let Data = await findCorrectDetails(email, pass);
+    console.log("login called"+ email + pass);
     if (Data.length > 0){
-        
         const accessToken = sign(
             {username: Data[0].Username, pass: Data[0].Password},
             process.env.JWT_SECRET
         );
+        console.log("Valid details given, generated token "+ accessToken);
 
         res.json({token: accessToken, valid: true, username: Data[0].Username, id: Data[0].UserID});
     } else {
+        console.log("invalid details");
         res.json({valid: false});
     }
 });

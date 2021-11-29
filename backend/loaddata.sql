@@ -1,1 +1,1 @@
-INSERT INTO UserAccounts(UserID, Name, Email, Username, Password) VALUES (0, 'AdminName', 'default@gmail.com', 'admin_01', '3d<LCh58e`eHA#W+');
+INSERT INTO UserAccounts(UserID, Name, Email, Username, Password) VALUES (0, 'AdminName', 'default@gmail.com', 'admin_01', '8&3CNxDAC$p$EyT@');
