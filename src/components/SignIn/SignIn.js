@@ -31,25 +31,26 @@ export default function SignIn() {
 
     const login = () => {
         const data = { Email: Email, Password: Password };
-        axios.post(process.env.API_LINK+"/auth/login", data).then((response) => {
-          if (!response.data.valid) {
-            toast({
-                title: `Invalid Email or Password Entered`,
-                status: "error",
-                isClosable: true,
-            });
-          } else {
-            localStorage.setItem("accessToken", response.data.token);
-            setAuthState({
-              username: response.data.username,
-              id: response.data.id,
-              status: true,
-            });
-            toast({
-                title: `Account successfully logged in!`,
-                status: "success",
-                isClosable: true,
-            });
+        axios.post(process.env.API_LINK+"/auth/login", data).then((response, err) => {
+            console.log(err, response);
+            if (!response.data.valid) {
+                toast({
+                    title: `Invalid Email or Password Entered`,
+                    status: "error",
+                    isClosable: true,
+                });
+            } else {
+                localStorage.setItem("accessToken", response.data.token);
+                setAuthState({
+                username: response.data.username,
+                id: response.data.id,
+                status: true,
+                });
+                toast({
+                    title: `Account successfully logged in!`,
+                    status: "success",
+                    isClosable: true,
+                });
           }
         });
     };
@@ -68,6 +69,7 @@ export default function SignIn() {
 
         if (outputStr.length > 0){
             //alert(outputStr);
+            console.log(2);
             toast({
                 title: `Invalid Login Details entered`,
                 description: outputStr,
@@ -76,6 +78,7 @@ export default function SignIn() {
             });
         } else{
             //alert("Account Successfully created");
+            console.log(1);
             login();
         }
     }
