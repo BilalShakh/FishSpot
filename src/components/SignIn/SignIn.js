@@ -31,7 +31,8 @@ export default function SignIn() {
 
     const login = () => {
         const data = { Email: Email, Password: Password };
-        axios.post(process.env.API_LINK+"/auth/login", data).then((response, err) => {
+        //console.log(process.env.REACT_APP_API_LINK)
+        axios.post(process.env.REACT_APP_API_LINK+"/auth/login", data).then((response, err) => {
             console.log(err, response);
             if (!response.data.valid) {
                 toast({
