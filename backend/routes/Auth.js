@@ -6,10 +6,14 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 async function findCorrectDetails(email, pass){
-    const [ Data ] = await pool.promise().query(
-        "Select UserID, Username FROM UserAccounts WHERE Email = ? and Password = ?",
-        [email, pass]
-    );
+    try {
+        const [ Data ] = await pool.promise().query(
+            "Select UserID, Username FROM UserAccounts WHERE Email = ? and Password = ?",
+            [email, pass]
+        )
+    } catch(error) {
+        console.log(error);
+    };
     return Data;
 }
 
@@ -36,7 +40,12 @@ router.post('/signup', async (req, res) => {
     const pass = req.body.Password;
     const name = req.body.Name;
     const username = req.body.Username;
-    let Data = await checkIfUserExists(email);
+    let Data = [1];
+    try {
+        Data = await checkIfUserExists(email);
+    } catch(error) {
+        console.log(error);
+    }
     if (Data.length == 0){
         await insertSignUpInfo(name,email,username,pass);
         res.json({status: true});
@@ -48,7 +57,12 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
     const email = req.body.Email;
     const pass = req.body.Password;
-    let Data = await findCorrectDetails(email, pass);
+    let Data;
+    try {
+        Data = await findCorrectDetails(email, pass);
+    } catch(error) {
+        console.log(error);
+    }
     console.log("login called"+ email + pass);
     if (Data.length > 0){
         const accessToken = sign(
