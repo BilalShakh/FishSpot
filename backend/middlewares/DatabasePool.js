@@ -18,4 +18,17 @@ pool.getConnection( (err, connection)=> {
     }
 });
 
-module.exports = { pool };
+const runQuery = (GivenQuery, parameters) => {
+  let Data = [];
+  try {
+      Data = await pool.promise().query(
+          GivenQuery,
+          parameters
+      )
+  } catch(error) {
+      console.log(error);
+  };
+  return Data;
+}
+
+module.exports = { runQuery };

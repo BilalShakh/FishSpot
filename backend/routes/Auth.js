@@ -1,16 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const { sign } = require("jsonwebtoken");
-const pool = require("../middlewares/DatabasePool");
+const { runQuery } = require("../middlewares/DatabasePool");
 const dotenv = require('dotenv');
 dotenv.config();
 
 async function findCorrectDetails(email, pass){
+    const params = [email, pass]
+    let Data = []
     try {
-        const [ Data ] = await pool.promise().query(
-            "Select UserID, Username FROM UserAccounts WHERE Email = ? and Password = ?",
-            [email, pass]
-        )
+        Data = await runQuery("Select UserID, Username FROM UserAccounts WHERE Email = ? and Password = ?", params);
     } catch(error) {
         console.log(error);
     };
