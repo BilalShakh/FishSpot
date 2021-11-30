@@ -25,7 +25,6 @@ function Header() {
             isClosable: true,
         });
     }
-
     
 
     useEffect(() => {
