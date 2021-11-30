@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import { VStack, HStack, Box, Text, FormControl, FormLabel, Input, Button, Spacer, useToast } from "@chakra-ui/react"
 import './Registration.css'
+import { useHistory } from 'react-router-dom'
+import { AuthContext } from '../AuthContext'
+import axios from 'axios'
 
 
 export default function Registration() {
@@ -12,7 +15,8 @@ export default function Registration() {
     const [Username, setUsername] = useState("");
     const [PasswordI, setPasswordI] = useState("");
     const [PasswordC, setPasswordC] = useState("");
-    
+    let history = useHistory();
+    const { setAuthState } = useContext(AuthContext);
     const toast = useToast();
 
     //changes the various states that hold important submission info
@@ -41,6 +45,58 @@ export default function Registration() {
                 break;
         }
     }
+
+    const login = () => {
+        const data = { Email: Email, Password: PasswordC };
+        //console.log(process.env.REACT_APP_API_LINK)
+        axios.post(process.env.REACT_APP_API_LINK+"/auth/login", data).then((response, err) => {
+            //console.log(err, response);
+            if (!response.data.valid) {
+                toast({
+                    title: `Invalid Email or Password Entered`,
+                    status: "error",
+                    isClosable: true,
+                });
+            } else {
+                localStorage.setItem("accessToken", response.data.token);
+                localStorage.setItem("username", response.data.username);
+                localStorage.setItem("id", response.data.id);
+                setAuthState({
+                    username: response.data.username,
+                    id: response.data.id,
+                    status: true,
+                });
+                toast({
+                    title: `Account successfully logged in!`,
+                    status: "success",
+                    isClosable: true,
+                });
+          }
+        });
+    };
+
+    const SignUp = () => {
+        const data = { Email: Email, Password: PasswordC, Name: FirstName+" "+LastName, Username: Username};
+        //console.log(process.env.REACT_APP_API_LINK)
+        axios.post(process.env.REACT_APP_API_LINK+"/auth/signup", data).then((response, err) => {
+            //console.log(err, response);
+            if (!response.data.status) {
+                toast({
+                    title: response.data.reason,
+                    status: "error",
+                    isClosable: true,
+                });
+            } else {
+                toast({
+                    title: `Account successfully created`,
+                    status: "success",
+                    isClosable: true,
+                });
+                login();
+                history.push('/');
+          }
+        });
+    };
 
     //Validates the inputs
     function handleSubmit(event) {
@@ -72,11 +128,7 @@ export default function Registration() {
             });
         } else{
             //alert("Account Successfully created");
-            toast({
-                title: `Account Successfully Created`,
-                status: "success",
-                isClosable: true,
-            });
+            SignUp();
         }
     }
 
@@ -172,7 +224,6 @@ export default function Registration() {
                                 </HStack>
                                 <Button
                                     colorScheme="purple"
-                                    type="submit"
                                     alignSelf="flex-start"
                                     onClick={handleSubmit}
                                 >

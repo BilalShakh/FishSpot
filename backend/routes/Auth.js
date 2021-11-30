@@ -84,11 +84,11 @@ router.post('/login', async (req, res) => {
             {username: Data[0].Username, pass: Data[0].Password},
             process.env.JWT_SECRET
         );
-        console.log("Valid details given, generated token "+ accessToken);
+        //console.log("Valid details given, generated token "+ accessToken);
 
         res.json({token: accessToken, valid: true, username: Data[0][0].Username, id: Data[0][0].UserID});
     } else {
-        console.log("invalid details");
+        //console.log("invalid details");
         res.json({valid: false});
     }
 });

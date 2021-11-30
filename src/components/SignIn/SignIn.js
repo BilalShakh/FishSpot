@@ -4,14 +4,14 @@ import Footer from '../Footer/Footer'
 import { VStack, Box, Text, FormControl, FormLabel, Input, Button, Spacer, useToast } from "@chakra-ui/react"
 import './SignIn.css'
 import { Link } from "@chakra-ui/react"
-//import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { AuthContext } from '../AuthContext'
 import axios from "axios";
 
 export default function SignIn() {
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
-    //let history = useHistory();
+    let history = useHistory();
     const { setAuthState } = useContext(AuthContext);
     const toast = useToast();
 
@@ -33,7 +33,7 @@ export default function SignIn() {
         const data = { Email: Email, Password: Password };
         //console.log(process.env.REACT_APP_API_LINK)
         axios.post(process.env.REACT_APP_API_LINK+"/auth/login", data).then((response, err) => {
-            console.log(err, response);
+            //console.log(err, response);
             if (!response.data.valid) {
                 toast({
                     title: `Invalid Email or Password Entered`,
@@ -42,16 +42,19 @@ export default function SignIn() {
                 });
             } else {
                 localStorage.setItem("accessToken", response.data.token);
+                localStorage.setItem("username", response.data.username);
+                localStorage.setItem("id", response.data.id);
                 setAuthState({
-                username: response.data.username,
-                id: response.data.id,
-                status: true,
+                    username: response.data.username,
+                    id: response.data.id,
+                    status: true,
                 });
                 toast({
                     title: `Account successfully logged in!`,
                     status: "success",
                     isClosable: true,
                 });
+                history.push('/');
           }
         });
     };
