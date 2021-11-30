@@ -18,7 +18,7 @@ pool.getConnection( (err, connection)=> {
     }
 });
 
-const runQuery = (GivenQuery, parameters) => {
+const runQuery = async (GivenQuery, parameters) => {
   let Data = [];
   try {
       Data = await pool.promise().query(

@@ -62,8 +62,8 @@ router.post('/login', async (req, res) => {
     } catch(error) {
         console.log(error);
     }
-    console.log("login called"+ email + pass);
-    if (Data.length > 0){
+    //console.log("login called"+ email + pass);
+    if (Data[0].length > 0){
         const accessToken = sign(
             {username: Data[0].Username, pass: Data[0].Password},
             process.env.JWT_SECRET
