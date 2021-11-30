@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { sign } = require("jsonwebtoken");
 const { runQuery } = require("../middlewares/DatabasePool");
+const { validateToken } = require('../middlewares/AuthMiddleware');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -33,6 +34,10 @@ async function insertSignUpInfo(Name,Email,Username,Password){
         [maxUserID[0].maxVal + 1, Name, Email, Username, Password]
     );
 }
+
+router.get('/verify', validateToken, (req, res) => {
+    res.json({isValid: true});
+})
 
 router.post('/signup', async (req, res) => {
     const email = req.body.Email;
