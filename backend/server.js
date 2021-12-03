@@ -12,6 +12,8 @@ app.use(cors());
 
 const authRouter = require("./routes/Auth");
 app.use("/auth", authRouter);
+const spotRouter = require("./routes/Spot");
+app.use("/spot", spotRouter);
 
 const port = process.env.PORT || 8080
 //app.listen(port, () => console.log(`Listening on port ${port}`))
