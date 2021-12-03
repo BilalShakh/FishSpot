@@ -1,3 +1,4 @@
+--adding an auto_increment keyword for UserAccounts might make things easier
 CREATE TABLE UserAccounts (
     UserID int not null,
     Name varchar(255) not null,
