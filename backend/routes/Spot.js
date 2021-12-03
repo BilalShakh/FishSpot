@@ -20,12 +20,42 @@ async function insertSpotDetails(Name, Feature, Description, LocLatitude, LocLon
     };
 }
 
+async function getSpotDetails(id) {
+  const params = [id]
+  let Data = []
+  try {
+    Data = await runQuery("SELECT * FROM FISHINGSPOTS WHERE ObjectID = ?", params);
+  } catch(error) {
+    console.log(error);
+  };
+  return Data[0];
+}
+
 router.get('/images/:key', (req, res) => {
   console.log(req.params)
   const key = req.params.key
   const readStream = getFileStream(key)
 
   readStream.pipe(res)
+})
+
+router.get('/info/:id',  async (req, res) => {
+  //console.log(req.params)
+  const id = req.params.id
+  const Data = await getSpotDetails(id);
+
+  if (Data.length !== 0){
+    res.send({
+      isValid: true,
+      SpotName:Data[0].Name,
+      LocLatitude:Data[0].LocLatitude,
+      LocLongitude:Data[0].LocLongitude,
+      Description:Data[0].Description,
+      ImageKey:Data[0].Image_Key
+    });
+  } else {
+    res.send({ isValid: false });
+  }
 })
 
 router.post('/create', validateToken, upload.single('Image'), async (req, res) => {
