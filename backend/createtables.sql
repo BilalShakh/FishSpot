@@ -16,7 +16,7 @@ CREATE TABLE FISHSINGSPOTS (
     LocLongitude float(20) not null,
     UserLatitude float(20) not null,
     UserLongitude float(20) not null,
-    UserID varchar(255) not null,
+    UserID int not null,
     Image_Key varchar(255) not null,
     PRIMARY KEY (ObjectID),
     FOREIGN KEY (UserID) references UserAccounts (UserID)

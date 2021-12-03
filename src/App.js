@@ -4,11 +4,10 @@ import Registration from "./components/Registration/Registration";
 import Results from "./components/Results/Results";
 import Spot from "./components/Spot/Spot";
 import Search from "./components/Search/Search";
-import { Submission } from "./components/Submission/Submission";
+import Submission  from "./components/Submission/Submission";
 import SignIn from "./components/SignIn/SignIn";
 import { AuthContext } from "./components/AuthContext";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 
 
 //import './App.css';
