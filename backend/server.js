@@ -16,8 +16,8 @@ app.use("/auth", authRouter);
 const port = process.env.PORT || 8080
 //app.listen(port, () => console.log(`Listening on port ${port}`))
 const sslServer = https.createServer({
-    key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
-    cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem'))
+    key: fs.readFileSync(process.env.SSL_KEY_LOC, 'utf8'),
+    cert: fs.readFileSync(process.env.SSL_CERT_LOC, 'utf8')
 }, app)
 
 sslServer.listen(port, () => console.log(`Listening on port ${port}`))
