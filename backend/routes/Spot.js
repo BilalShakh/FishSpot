@@ -14,7 +14,7 @@ async function insertSpotDetails(Name, Feature, Description, LocLatitude, LocLon
     const params = [Name, Feature, Description, LocLatitude, LocLongitude, UserLatitude, UserLongitude, UserID, Image_Key];
     let Data = []
     try {
-        Data = await runQuery("INSERT INTO FISHSINGSPOTS(Name, Feature, Description, LocLatitude, LocLongitude, UserLatitude, UserLongitude, UserID, Image_Key) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", params);
+        Data = await runQuery("INSERT INTO FishingSpots(Name, Feature, Description, LocLatitude, LocLongitude, UserLatitude, UserLongitude, UserID, Image_Key) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", params);
     } catch(error) {
         console.log(error);
     };
@@ -24,7 +24,7 @@ async function getSpotDetails(id) {
   const params = [id]
   let Data = []
   try {
-    Data = await runQuery("SELECT * FROM FISHINGSPOTS WHERE ObjectID = ?", params);
+    Data = await runQuery("SELECT * FROM FishingSpots WHERE ObjectID = ?", params);
   } catch(error) {
     console.log(error);
   };

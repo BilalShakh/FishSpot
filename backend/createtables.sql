@@ -7,7 +7,7 @@ CREATE TABLE UserAccounts (
     primary key (UserID)
 );
 
-CREATE TABLE FISHSINGSPOTS (
+CREATE TABLE FishingSpots (
     ObjectID int not null auto_increment,
     Name varchar(255) not null,
     Feature varchar(255) not null,
