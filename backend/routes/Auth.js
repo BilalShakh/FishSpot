@@ -32,7 +32,7 @@ async function insertSignUpInfo(Name,Email,Username,Password){
     const params2 = [Name, Email, Username, Password];
     let Data2 = []
     try {
-        Data2 = await runQuery("INSERT INTO UserAccounts(Name, Email, Username, Password) VALUES (?, ?, ?, ?, ?)", params2);
+        Data2 = await runQuery("INSERT INTO UserAccounts(Name, Email, Username, Password) VALUES (?, ?, ?, ?)", params2);
     } catch(error) {
         console.log(error);
     };
