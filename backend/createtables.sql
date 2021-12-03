@@ -1,5 +1,5 @@
 CREATE TABLE UserAccounts (
-    UserID int not null auto_increment,
+    UserID int not null,
     Name varchar(255) not null,
     Email varchar(255) not null,
     Username varchar(255) not null,
@@ -28,13 +28,13 @@ CREATE TABLE REVIEWS (
     FOREIGN KEY (ObjectID) REFERENCES FISHSPOTS(ObjectID)
 );
 
-INSERT INTO UserAccounts(Name,Email,Username,Password)
+INSERT INTO UserAccounts(UserID,Name,Email,Username,Password)
 VALUES
-('John Mcdonald','example455444ww3@gmail.com','john33453','vnrguhfugVHEU'),
-('Joe Ben','example45bf5444ww3@gmail.com','vhggy','35973357DV'),
-('Mike Joe','455444wwgrr3@gmail.com','weurhv','FV$^DH'),
-('Mathrew Alex','455444ww3@gmail.com','fbhs','FVJT67ECFjj'),
-('Peter Apple','fhvhecvg@gmail.com','wefhf','rcd8JNM7887');
+(1,'John Mcdonald','example455444ww3@gmail.com','john33453','vnrguhfugVHEU'),
+(2,'Joe Ben','example45bf5444ww3@gmail.com','vhggy','35973357DV'),
+(3,'Mike Joe','455444wwgrr3@gmail.com','weurhv','FV$^DH'),
+(4,'Mathrew Alex','455444ww3@gmail.com','fbhs','FVJT67ECFjj'),
+(5,'Peter Apple','fhvhecvg@gmail.com','wefhf','rcd8JNM7887');
 
 INSERT INTO FISHSPOTS(Name,Description,Latitude,Longitude,Image_File_Name)
 VALUES
@@ -48,11 +48,11 @@ VALUES
 INSERT INTO REVIEWS(Content,UserID,ObjectID,Rating)
 VALUES
 ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat ut facilisis rutrum donec tristique mauris est ac nunc. Eget nec, lorem mi libero accumsan',1,1,3),
-('Salmon run seasonally and in great numbers',2,2,4)
-('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat ut facilisis rutrum donec tristique mauris est ac nunc. Eget nec, lorem mi libero accumsan',2,1,4)
-('Trouts roam free in the rivers. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat ut facilisis rutrum donec tristique mauris est ac nunc.',3,1,5)
-('Salmon run seasonally and in great numbers. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat ut facilisis rutrum donec tristique mauris est ac nunc.',4,1,4)
-('Bass and trout that exist in the deep. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat ut facilisis rutrum donec tristique mauris est ac nunc.',5,1,4)
+('Salmon run seasonally and in great numbers',2,2,4),
+('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat ut facilisis rutrum donec tristique mauris est ac nunc. Eget nec, lorem mi libero accumsan',2,1,4),
+('Trouts roam free in the rivers. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat ut facilisis rutrum donec tristique mauris est ac nunc.',3,1,5),
+('Salmon run seasonally and in great numbers. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat ut facilisis rutrum donec tristique mauris est ac nunc.',4,1,4),
+('Bass and trout that exist in the deep. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat ut facilisis rutrum donec tristique mauris est ac nunc.',5,1,4);
 
 
 
