@@ -46,29 +46,6 @@ async function insertSignUpInfo(Name,Email,Username,Password){
     };
 }
 
-// inseting record for objects(fish spots) in the database
-async function insertFishSpotInfo(Name,Description,Latitude,Longitude,Image_File_Name){
-    const param = [Name,Description,Latitude,Longitude,Image_File_Name]
-    let Data  = []
-    try {
-        Data = await runQuery("INSERT INTO FISHSPOTS(Name, Description, Latitude, Longitude, Image_File_Name) VALUES (?, ?, ?, ?, ?)", param);
-    } catch(error) {
-        console.log(error);
-    };
-}
-
-// inseting record for reviews in the database
-async function insertReviewInfo(Content,UserID,ObjectID,Rating){
-    const param = [Content,UserID,ObjectID,Rating]
-    let Data  = []
-    try {
-        Data = await runQuery("INSERT INTO REVIEWS(Content, UserID, ObjectID, Rating) VALUES (?, ?, ?, ?)", param);
-    } catch(error) {
-        console.log(error);
-    };
-}
-
-
 router.get('/verify', validateToken, (req, res) => {
     res.json({isValid: true});
 })
