@@ -48,7 +48,7 @@ async function getFullName(UserID) {
   const params = [numUserID];
   let Data = [];
   try {
-    Data = await runQuery("SELECT Name FROM FishingSpots WHERE UserID = ?", params);
+    Data = await runQuery("SELECT Name FROM UserAccounts WHERE UserID = ?", params);
   } catch(error) {
     console.log(error);
   };
@@ -75,7 +75,7 @@ router.get('/reviews/:id', async (req, res) => {
     const review = reviews[i];
     const FullName = await getFullName(review.UserID);
     const item = {
-      Name: FullName,
+      Name: FullName[0].Name,
       Rating: review.Rating,
       Description: review.Description
     };
