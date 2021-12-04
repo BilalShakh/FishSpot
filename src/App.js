@@ -29,7 +29,7 @@ function App() {
             render={props => <Registration {...props} />}
           />
           <Route
-            path="/spot"
+            path="/spot/:id"
             exact
             render={props => <Spot {...props} />}
           />

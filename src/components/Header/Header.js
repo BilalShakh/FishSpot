@@ -49,7 +49,7 @@ function Header() {
                 }
             });
         }
-    }, []);
+    }, [localStorage.getItem("accessToken")]);
 
     return (
         <div class="background-header">
