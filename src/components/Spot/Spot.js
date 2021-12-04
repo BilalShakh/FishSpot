@@ -111,13 +111,22 @@ export default function Spot() {
         axios.post(process.env.REACT_APP_API_LINK+"/spot/reviews/create", data, { headers: headers }).then((response, err) => {
             //console.log(err, response);
             if (!response.data.valid) {
-                toast({
-                    title: `Your session has expired, please login again`,
-                    status: "error",
-                    isClosable: true,
-                });
-                Logout();
-                setWritingReview(false);
+                if (!response.data.reason){
+                    toast({
+                        title: `Your session has expired, please login again`,
+                        status: "error",
+                        isClosable: true,
+                    });
+                    Logout();
+                    setWritingReview(false);
+                } else {
+                    toast({
+                        title: "You already posted a review on this spot.",
+                        status: "error",
+                        isClosable: true,
+                    });
+                    setWritingReview(false);
+                }
             } else {
                 toast({
                     title: `Your review has been successfully posted!`,
@@ -129,6 +138,7 @@ export default function Spot() {
                         setReviewsArr(response.data.reviews);
                     }
                 });
+                setWritingReview(false);
             }
         });
     }
