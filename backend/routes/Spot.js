@@ -141,7 +141,7 @@ router.post('/create', validateToken, upload.single('Image'), async (req, res) =
   //console.log(file)
   const result = await uploadFile(file)
   await unlinkFile(file.path)
-  console.log(result)
+  //console.log(result)
   //const description = req.body.description
   const body = req.body;
   await insertSpotDetails(body.SpotName, body.Feature, body.Description, body.LocLatitude, body.LocLongitude, body.UserLatitude, body.UserLongitude, body.UserID, result.Key);
