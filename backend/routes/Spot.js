@@ -31,8 +31,68 @@ async function getSpotDetails(id) {
   return Data[0];
 }
 
+async function getReviews(ObjectID) {
+  const params = [ObjectID]
+  let Data = []
+  try {
+    Data = await runQuery("SELECT UserID, Rating, Description FROM Reviews WHERE ObjectID = ?", params);
+  } catch(error) {
+    console.log(error);
+  };
+  return Data[0];
+}
+
+async function getFullName(UserID) {
+  const params = [UserID]
+  let Data = []
+  try {
+    Data = await runQuery("SELECT Name FROM FishingSpots WHERE UserID = ?", params);
+  } catch(error) {
+    console.log(error);
+  };
+  return Data[0];
+}
+
+async function insertReview(ObjectID, UserID, Rating, Description){
+  const params = [ObjectID, UserID, Rating, Description]
+  let Data = []
+  try {
+    Data = await runQuery("INSERT INTO Reviews(ObjectID, UserID, Rating, Description) VALUES (?, ?, ?, ?)", params);
+  } catch(error) {
+    console.log(error);
+  };
+  return Data[0];
+}
+
+router.get('/reviews/:id', async (req, res) => {
+  //console.log(req.params)
+  const id = req.params.id;
+  const reviews = await getReviews(id);
+  let resData = [];
+  reviews.forEach(async (review) => {
+    const FullName = await getFullName(review.UserID);
+    const item = {
+      Name: FullName,
+      Rating: review.Rating,
+      Description: review.Description
+    };
+    resData.push(item);
+  });
+  if (resData.length > 0){
+    res.send({foundReview: true, reviews: resData});
+  } else{
+    resData({foundReview: false});
+  }
+})
+
+router.post('/reviews/create', validateToken, async (req, res) => {
+  //console.log(req.params)
+  await insertReview(req.body.ObjectID, req.body.UserID, req.body.Rating, req.body.Description);
+  res.send({valid: true});
+})
+
 router.get('/images/:key', (req, res) => {
-  console.log(req.params)
+  //console.log(req.params)
   const key = req.params.key
   const readStream = getFileStream(key)
 
