@@ -21,7 +21,7 @@ async function insertSpotDetails(Name, Feature, Description, LocLatitude, LocLon
 }
 
 async function getSpotDetails(id) {
-  const params = [id]
+  const params = [parseInt(id)]
   let Data = []
   try {
     Data = await runQuery("SELECT * FROM FishingSpots WHERE ObjectID = ?", params);
@@ -32,7 +32,8 @@ async function getSpotDetails(id) {
 }
 
 async function getReviews(ObjectID) {
-  const params = [ObjectID]
+  const numObjectID = parseInt(ObjectID);
+  const params = [numObjectID]
   let Data = []
   try {
     Data = await runQuery("SELECT UserID, Rating, Description FROM Reviews WHERE ObjectID = ?", params);
@@ -43,8 +44,9 @@ async function getReviews(ObjectID) {
 }
 
 async function getFullName(UserID) {
-  const params = [UserID]
-  let Data = []
+  const numUserID = parseInt(UserID);
+  const params = [numUserID];
+  let Data = [];
   try {
     Data = await runQuery("SELECT Name FROM FishingSpots WHERE UserID = ?", params);
   } catch(error) {
@@ -81,7 +83,7 @@ router.get('/reviews/:id', async (req, res) => {
   if (resData.length > 0){
     res.send({foundReview: true, reviews: resData});
   } else{
-    resData({foundReview: false});
+    res.send({foundReview: false});
   }
 })
 

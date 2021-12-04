@@ -6,3 +6,9 @@ VALUES
 ('Mike Joe','455444wwgrr3@gmail.com','weurhv','FV$^DH'),
 ('Mathrew Alex','455444ww3@gmail.com','fbhs','FVJT67ECFjj'),
 ('Peter Apple','fhvhecvg@gmail.com','wefhf','rcd8JNM7887');
+
+INSERT INTO Reviews(ObjectID, UserID, Rating, Description) 
+VALUES
+(1,2,3,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat ut facilisis rutrum donec tristique mauris est ac nunc. Eget nec, lorem mi libero accumsan'),
+(1,3,4,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat ut facilisis rutrum donec tristique mauris est ac nunc. Eget nec, lorem mi libero accumsan'),
+(1,6,1,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat ut facilisis rutrum donec tristique mauris est ac nunc. Eget nec, lorem mi libero accumsan est ac nunc. Eget nec, lorem mi libero accumsan est ac nunc. Eget nec, lorem mi libero accumsan est ac nunc. Eget nec, lorem mi libero accumsan est ac nunc. Eget nec, lorem mi libero accumsan est ac nunc. Eget nec, lorem mi libero accumsan');

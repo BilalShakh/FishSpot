@@ -26,7 +26,7 @@ CREATE TABLE Reviews (
     ObjectID int not null,
     UserID int not null,
     Rating int not null,
-    Description varchar(255) not null,
+    Description varchar(5000) not null,
     PRIMARY KEY(ObjectID, UserID),
     FOREIGN KEY (UserID) references UserAccounts (UserID),
     FOREIGN KEY (ObjectID) references FishingSpots (ObjectID)
