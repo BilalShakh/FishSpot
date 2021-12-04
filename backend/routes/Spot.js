@@ -66,6 +66,17 @@ async function insertReview(ObjectID, UserID, Rating, Description){
   return Data[0];
 }
 
+async function checkIfReviewExists(ObjectID, UserID){
+  const params = [ObjectID, UserID]
+  let Data = []
+  try {
+    Data = await runQuery("SELECT * FROM Reviews WHERE ObjectID = ? and UserID = ?", params);
+  } catch(error) {
+    console.log(error);
+  };
+  return Data[0].length > 0;
+}
+
 router.get('/reviews/:id', async (req, res) => {
   //console.log(req.params)
   const id = req.params.id;
@@ -90,8 +101,12 @@ router.get('/reviews/:id', async (req, res) => {
 
 router.post('/reviews/create', validateToken, async (req, res) => {
   //console.log(req.params)
-  await insertReview(req.body.ObjectID, req.body.UserID, req.body.Rating, req.body.Description);
-  res.send({valid: true});
+  if (checkIfReviewExists(req.body.ObjectID, req.body.UserID)){
+    res.send({valid: false, reason: "Already exists"});
+  }else {
+    await insertReview(req.body.ObjectID, req.body.UserID, req.body.Rating, req.body.Description);
+    res.send({valid: true});
+  }
 })
 
 router.get('/images/:key', (req, res) => {
