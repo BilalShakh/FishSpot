@@ -52,8 +52,8 @@ export default function Spot() {
                 setLocation({
                     "first": {
                         text: response.data.SpotName, 
-                        lat: response.data.LocLatitude, 
-                        lng: response.data.LocLongitude
+                        lat: response.data.LocLongitude, 
+                        lng: response.data.LocLatitude
                     }
                 });
                 setDescription(response.data.Description);
