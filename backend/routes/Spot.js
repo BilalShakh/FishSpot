@@ -101,8 +101,8 @@ router.get('/reviews/:id', async (req, res) => {
 
 router.post('/reviews/create', validateToken, async (req, res) => {
   //console.log(req.params)
-  const data = checkIfReviewExists(req.body.ObjectID, req.body.UserID);
-  if (data.length > 0){
+  const data = await checkIfReviewExists(req.body.ObjectID, req.body.UserID);
+  if (data.length !== 0){
     res.send({valid: false, reason: "Already exists"});
   }else {
     await insertReview(req.body.ObjectID, req.body.UserID, req.body.Rating, req.body.Description);
