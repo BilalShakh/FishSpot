@@ -74,7 +74,7 @@ async function checkIfReviewExists(ObjectID, UserID){
   } catch(error) {
     console.log(error);
   };
-  return Data[0].length > 0;
+  return Data[0];
 }
 
 router.get('/reviews/:id', async (req, res) => {
@@ -101,7 +101,8 @@ router.get('/reviews/:id', async (req, res) => {
 
 router.post('/reviews/create', validateToken, async (req, res) => {
   //console.log(req.params)
-  if (checkIfReviewExists(req.body.ObjectID, req.body.UserID)){
+  const data = checkIfReviewExists(req.body.ObjectID, req.body.UserID);
+  if (data.length > 0){
     res.send({valid: false, reason: "Already exists"});
   }else {
     await insertReview(req.body.ObjectID, req.body.UserID, req.body.Rating, req.body.Description);
