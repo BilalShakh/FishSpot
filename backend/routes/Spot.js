@@ -71,7 +71,8 @@ router.get('/reviews/:id', async (req, res) => {
   const id = req.params.id;
   const reviews = await getReviews(id);
   let resData = [];
-  reviews.forEach(async (review) => {
+  for (let i = 0; i < reviews.length; i++){
+    const review = reviews[i];
     const FullName = await getFullName(review.UserID);
     const item = {
       Name: FullName,
@@ -79,7 +80,7 @@ router.get('/reviews/:id', async (req, res) => {
       Description: review.Description
     };
     resData.push(item);
-  });
+  }
   if (resData.length > 0){
     res.send({foundReview: true, reviews: resData});
   } else{
