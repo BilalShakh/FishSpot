@@ -70,6 +70,8 @@ router.get('/name/:term',  async (req, res) => {
                         Feature: element.Feature, 
                         Rating: reviewDetails.avgRating, 
                         NumReviews: reviewDetails.numReviews,
+                        Latitude: element.LocLatitude,
+                        Longitude: element.LocLongitude,
                         Description: element.Description.substring(0,50),
                         Image_key: element.Image_Key
                     });
@@ -86,6 +88,8 @@ router.get('/name/:term',  async (req, res) => {
                 Feature: element.Feature, 
                 Rating: reviewDetails.avgRating, 
                 NumReviews: reviewDetails.numReviews,
+                Latitude: element.LocLatitude,
+                Longitude: element.LocLongitude,
                 Description: element.Description.substring(0,50),
                 Image_key: element.Image_Key
             });
