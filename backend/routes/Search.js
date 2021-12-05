@@ -3,10 +3,10 @@ const router = express.Router();
 const { runQuery } = require("../middlewares/DatabasePool");
 
 async function LookupSpotsByName(name) {
-    const params = [name]
+    const params = ['%'+name+'%']
     let Data = []
     try {
-      Data = await runQuery("SELECT ObjectID, Name, Feature, Description, LocLatitude, LocLongitude, Image_Key  FROM FishingSpots WHERE Name LIKE '%?%'", params);
+      Data = await runQuery("SELECT ObjectID, Name, Feature, Description, LocLatitude, LocLongitude, Image_Key  FROM FishingSpots WHERE Name LIKE ?", params);
     } catch(error) {
       console.log(error);
     };
@@ -71,7 +71,7 @@ router.get('/name/:term',  async (req, res) => {
                         Rating: reviewDetails.avgRating, 
                         NumReviews: reviewDetails.numReviews,
                         Description: element.Description.substring(0,50),
-                        Image_key: element.Image_key
+                        Image_key: element.Image_Key
                     });
                 }
           }
@@ -87,7 +87,7 @@ router.get('/name/:term',  async (req, res) => {
                 Rating: reviewDetails.avgRating, 
                 NumReviews: reviewDetails.numReviews,
                 Description: element.Description.substring(0,50),
-                Image_key: element.Image_key
+                Image_key: element.Image_Key
             });
         }
         //Data.forEach(await populateResArray(element));
