@@ -2,18 +2,6 @@
 
 [Link to website](https://www.compsci4ww3bilalyichun.com)
 
-[Link to search form page](https://www.compsci4ww3bilalyichun.com/search)
-
-[Link to results page](https://www.compsci4ww3bilalyichun.com/results)
-
-[Link to a sample dynamically generated individual object page](https://www.compsci4ww3bilalyichun.com/spot) 
-
-[Link to object submission page](https://www.compsci4ww3bilalyichun.com/submission) 
-
-[Link to user registration page](https://www.compsci4ww3bilalyichun.com/signup)  
-
-[Link to user sign in page](https://www.compsci4ww3bilalyichun.com/signin) 
-
 [Link to gith repo](https://github.com/BilalShakh/4WW3Project)
 
 ## About using the search page:
