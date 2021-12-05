@@ -7,10 +7,11 @@ function Review(props) {
     return (
         <HStack justifyItems="baseline" alignSelf="baseline" w="100%">
             <Avatar name={props.name} />
-            <VStack alignItems="baseline" spacing="1px" >
-                <Flex w="25%">
+            <VStack alignItems="baseline" spacing="5px" >
+                <HStack>
                     <Text fontSize="130%" color="white">{props.name}</Text>
                     <Spacer />
+                    <Flex>
                     {Array(5)
                         .fill("")
                         .map((_, i) => (
@@ -20,7 +21,8 @@ function Review(props) {
                             alignSelf="center"
                         />
                     ))}
-                </Flex>
+                    </Flex>
+                </HStack>
                 <Text fontSize="100%" fontWeight="thin" noOfLines={[1,2,3]} color="white">{props.description}</Text>
             </VStack>
         </HStack>

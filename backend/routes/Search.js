@@ -74,12 +74,12 @@ function distance(lat1, lat2, lon1, lon2)
 router.get('/rating/:rating',  async (req, res) => {
     //console.log(req.params)
     let Data = [];
+    const rating = req.params.rating;
     if (rating === "All"){
         Data = await getAllSpots();
     } else {
         Data = await LookupSpotsByRating(rating);
     }
-    const rating = req.params.rating
     const locationGiven = req.header("location");
     const longitude = req.header("lng");
     const latitude = req.header("lat");

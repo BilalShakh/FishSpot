@@ -1,14 +1,12 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
-import fishing_1 from '../../Assets/fishing_1.jpg'
-import fishing_2 from '../../Assets/fishing_2.jpeg'
-import fishing_3 from '../../Assets/fishing_3.jpg'
-import fishing_4 from '../../Assets/fishing_4.jpg'
-import { VStack, HStack, Box } from "@chakra-ui/react"
+import { VStack, Box, SimpleGrid, Heading } from "@chakra-ui/react"
+import { useParams, useHistory, Link } from "react-router-dom";
 import Card from './Card'
 import Map from './Map' 
 import "./Results.css"
+import axios from 'axios'
 
 //example of an output from backend api
 const locations = {
@@ -29,104 +27,124 @@ const locations = {
     } 
 }
 
-export default class Results extends Component {
-    static propTypes = {
-    }
+export default function Results() {
+    const { query } = useParams();
+    const history = useHistory();
+    const queryString = require('query-string');
+    const [CardData, setCardData] = useState([]);
+    const [dataFound, setDataFound] = useState(false);
+    const [mapLocations, setMapLocations] = useState(locations);
+    const colors = ["pink", "teal.100", "orange.200", "purple.200"];
+    
+    useEffect(()=>{
+        const queryObject = queryString.parse(query);
+        if (!query){
+            history.push("/");
+        }
+        if (!queryObject.type || !queryObject.q){
+            history.push("/");
+        }
+        let headers = {}
+        if (queryObject.useLocation){
+            headers = { location: queryObject.useLocation === 'true', lng: queryObject.lng, lat: queryObject.lat };
+        }
+        //console.log(headers)
+        //REMOVE THE LOCAL STORAGE LATER
+        if (queryObject.type === "Rating"){
+            const finalQuery = queryObject.q === "All" ? queryObject.q: queryObject.q.substring(0,1);
+            axios.get(process.env.REACT_APP_API_LINK+"/search/Rating/"+finalQuery, { headers }).then((response, err) => {
+                //console.log(response.data);
+                if (response.data.found === true){
+                    setDataFound(true);
+                    setCardData(response.data.cardData);
+                    //console.log(CardData);
+                }else {
+                    setDataFound(false);
+                }
+            });
+        } else {
+            axios.get(process.env.REACT_APP_API_LINK+"/search/name/"+queryObject.q, { headers }).then((response, err) => {
+                //console.log(response.data);
+                if (response.data.found === true){
+                    setDataFound(true);
+                    setCardData(response.data.cardData);
+                    //console.log(CardData);
+                }else {
+                    setDataFound(false);
+                }
+            });
+        }
+    },[query]);
 
-    render() {
-        return (
-            <div class = "result-background">
-                <VStack spacing="85px">
-                    <Header></Header>
+    useEffect(()=>{
+        //console.log(1);
+        let mapLoc = {}
+        for (let i=0; i < CardData.length; i++){
+            if (i===0){
+                mapLoc = {
+                    "first": {
+                        text: CardData[i].Name, 
+                        lat: CardData[i].Longitude, 
+                        lng: CardData[i].Latitude
+                    }
+                };
+            }else {
+                const temp = {
+                    [i.toString()] : {
+                        text: CardData[i].Name, 
+                        lat: CardData[i].Longitude, 
+                        lng: CardData[i].Latitude
+                    }
+                }
+                mapLoc = Object.assign(mapLoc, temp);
+            }
+        }
+        // console.log(mapLoc);
+        // console.log(locations);
+        if (Object.keys(mapLoc).length !== 0){
+            //console.log(mapLoc);
+            setMapLocations(mapLoc);
+        }
+    }, [CardData]);
+
+
+    
+    return (
+        <div class = "result-background">
+            <VStack spacing="85px">
+                <Header></Header>
+                {dataFound === false ? (
+                    <Box height="80vh" width="90vw" >
+                        <Heading color="white" alignSelf="flex-start" fontSize="3xl">No results found.</Heading>
+                    </Box>
+                ) : (
                     <VStack spacing="40px">
-                        
                         <Box borderWidth="0px" borderRadius="lg" overflow="hidden" width="65vw" height="60vh">
                             {/* <Image src={spot_map} alt="IMAGE NOT FOUND"/> */}
-                            <Map locations={locations} zoomLevel={12}></Map>
+                            <Map locations={mapLocations} zoomLevel={12}></Map>
                         </Box>
-                        <HStack spacing="20px" flexWrap="wrap">
-                            <Card
-                                color = "pink"
-                                Image = {fishing_1}
-                                featureLine = "Best fishing spot"
-                                title = "Montana Mountain"
-                                description = "Trouts roam free in the rivers"
-                                rating = {4}
-                                reviewCount = {40}
-                            />
-                            <Card
-                                color = "teal.100"
-                                Image = {fishing_2}
-                                featureLine = "Camping fishing spot"
-                                title = "Kawartha Lakes"
-                                description = "Bass and trout that exist in the deep"
-                                rating = {2}
-                                reviewCount = {30}
-                            />
-                            <Card
-                                color = "orange.200"
-                                Image = {fishing_3}
-                                featureLine = "Seasonal fishing spot"
-                                title = "Port Hope"
-                                description = "Salmon run seasonally and in great numbers"
-                                rating = {1}
-                                reviewCount = {10}
-                            />
-                            
-                            <Card
-                                color = "purple.200"
-                                Image = {fishing_4}
-                                featureLine = "Pike fishing spot"
-                                title = "Rainy River"
-                                description = "Predatory pike's roam the river bed looking for fish to feed upon."
-                                rating = {5}
-                                reviewCount = {70}
-                            />
-                        </HStack>
-                        <HStack spacing="20px" flexWrap="wrap">
-                            <Card
-                                color = "pink"
-                                Image = {fishing_1}
-                                featureLine = "Best fishing spot"
-                                title = "Montana Mountain"
-                                description = "Trouts roam free in the rivers"
-                                rating = {4}
-                                reviewCount = {40}
-                            />
-                            <Card
-                                color = "teal.100"
-                                Image = {fishing_2}
-                                featureLine = "Camping fishing spot"
-                                title = "Kawartha Lakes"
-                                description = "Bass and trout that exist in the deep"
-                                rating = {2}
-                                reviewCount = {30}
-                            />
-                            <Card
-                                color = "orange.200"
-                                Image = {fishing_3}
-                                featureLine = "Seasonal fishing spot"
-                                title = "Port Hope"
-                                description = "Salmon run seasonally and in great numbers"
-                                rating = {1}
-                                reviewCount = {10}
-                            />
-                            
-                            <Card
-                                color = "purple.200"
-                                Image = {fishing_4}
-                                featureLine = "Pike fishing spot"
-                                title = "Rainy River"
-                                description = "Predatory pike's roam the river bed looking for fish to feed upon."
-                                rating = {5}
-                                reviewCount = {70}
-                            />
-                    
-                    </HStack>
+                        <SimpleGrid columns={4} spacingX='20px' spacingY='20px' flexWrap="wrap">
+                            {dataFound && CardData.map(item => 
+                                    <Link to={"/spot/"+item.ObjectID}>
+                                        <Card
+                                            color = {colors[Math.floor(Math.random()*colors.length)]}
+                                            Image = {process.env.REACT_APP_API_LINK+"/spot/images/"+item.Image_key}
+                                            featureLine = {item.Feature+" fishing spot"}
+                                            title = {item.Name}
+                                            description = {item.Description}
+                                            rating = {item.Rating}
+                                            reviewCount = {item.NumReviews}
+                                        />
+                                    </Link>
+                                )
+                            }
+                        </SimpleGrid>
                     </VStack>
-                    <Footer></Footer>
-                </VStack>
-            </div>
-        )
-    }
+                )}
+                <Footer></Footer>
+            </VStack>
+            
+        </div>
+    )
+    
 }

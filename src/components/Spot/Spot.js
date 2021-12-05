@@ -29,7 +29,7 @@ export default function Spot() {
     const [SpotImage, setSpotImage] = useState(fishing_6);
     const [writingReview, setWritingReview] = useState(false);
     const [reviewDescription, setReviewDescription] = useState("");
-    const [reviewRating, setReviewRating] = useState("");
+    const [reviewRating, setReviewRating] = useState("1 Star");
     const [reviewsArr, setReviewsArr] = useState([]);
 
     
@@ -46,6 +46,9 @@ export default function Spot() {
     }
 
     useEffect(()=>{
+        if (!id){
+            history.push("/");
+        }
         axios.get(process.env.REACT_APP_API_LINK+"/spot/info/"+id).then((response, err) => {
             if (response.data.isValid){
                 setSpotName(response.data.SpotName);

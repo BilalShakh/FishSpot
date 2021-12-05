@@ -39,7 +39,7 @@ function App() {
             render={props => <Submission {...props} />}
           />
           <Route
-            path="/results"
+            path="/results/:query"
             exact
             render={props => <Results {...props} />}
           />
