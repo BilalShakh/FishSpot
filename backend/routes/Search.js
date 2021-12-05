@@ -54,14 +54,15 @@ router.get('/name/:term',  async (req, res) => {
     const name = req.params.term
     const Data = await LookupSpotsByName(name);
     const locationGiven = req.header("location");
-    const userLocation = req.header("userLocation");
+    const longitude = req.header("lng");
+    const latitude = req.header("lat");
     let ResData = []
   
     if (Data.length !== 0){
       if (locationGiven){
           for (let i = 0; i < Data.length; i++){
                 let element = Data[i];
-                const dist = distance(userLocation.latitude, element.LocLatitude, userLocation.longitude, element.LocLongitude);
+                const dist = distance(latitude, element.LocLatitude, longitude, element.LocLongitude);
                 if (dist <= 100) {
                     let reviewDetails = await getReviewDetails(element.ObjectID);
                     ResData.push({
