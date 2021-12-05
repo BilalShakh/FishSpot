@@ -6,6 +6,7 @@ const { validateToken } = require('../middlewares/AuthMiddleware');
 const dotenv = require('dotenv');
 dotenv.config();
 
+// given email and passwords, we return the user's id and username.
 async function findCorrectDetails(email, pass){
     const params = [email, pass]
     let Data = []
@@ -17,6 +18,7 @@ async function findCorrectDetails(email, pass){
     return Data;
 }
 
+// given an email we return the user's name and id.
 async function checkIfUserExists(email){
     const params = [email];
     let Data = []
@@ -28,19 +30,12 @@ async function checkIfUserExists(email){
     return Data;
 }
 
+// given the info of a new user, we create a new record in the database
 async function insertSignUpInfo(Name,Email,Username,Password){
-    const params = [];
-    let Data = []
-    try {
-        Data = await runQuery("Select MAX(UserID) as maxVal FROM UserAccounts", params);
-    } catch(error) {
-        console.log(error);
-    };
-
-    const params2 = [Data[0][0].maxVal + 1, Name, Email, Username, Password];
+    const params2 = [Name, Email, Username, Password];
     let Data2 = []
     try {
-        Data2 = await runQuery("INSERT INTO UserAccounts(UserID, Name, Email, Username, Password) VALUES (?, ?, ?, ?, ?)", params2);
+        Data2 = await runQuery("INSERT INTO UserAccounts(Name, Email, Username, Password) VALUES (?, ?, ?, ?)", params2);
     } catch(error) {
         console.log(error);
     };

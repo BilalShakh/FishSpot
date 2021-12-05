@@ -4,6 +4,10 @@
 
 [Link to gith repo](https://github.com/BilalShakh/4WW3Project)
 
+
+## Interaction with data base
+    The code for interaction with the database is stored in the backend folder.
+    
 ## About using the search page:
 
     As the number of objects is limited, the search results of some search terms/rating might be empty, to get a view of the result page that has data, one can search with the all rating option first to have a view of all the objects and know what keywords are valid.
