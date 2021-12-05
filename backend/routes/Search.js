@@ -59,24 +59,26 @@ router.get('/name/:term',  async (req, res) => {
   
     if (Data.length !== 0){
       if (locationGiven){
-          Data.forEach(async element => {
-              const dist = distance(userLocation.latitude, element.LocLatitude, userLocation.longitude, element.LocLongitude);
-              if (dist <= 100) {
-                  let reviewDetails = await getReviewDetails(element.ObjectID);
-                  ResData.push({
-                      ObjectID: element.ObjectID,
-                      Name: element.Name, 
-                      Feature: element.Feature, 
-                      Rating: reviewDetails.avgRating, 
-                      NumReviews: reviewDetails.numReviews,
-                      Description: element.Description.substring(0,50),
-                      Image_key: element.Image_key
+          for (let i = 0; i < Data.length; i++){
+                let element = Data[i];
+                const dist = distance(userLocation.latitude, element.LocLatitude, userLocation.longitude, element.LocLongitude);
+                if (dist <= 100) {
+                    let reviewDetails = await getReviewDetails(element.ObjectID);
+                    ResData.push({
+                        ObjectID: element.ObjectID,
+                        Name: element.Name, 
+                        Feature: element.Feature, 
+                        Rating: reviewDetails.avgRating, 
+                        NumReviews: reviewDetails.numReviews,
+                        Description: element.Description.substring(0,50),
+                        Image_key: element.Image_key
                     });
-              }
-          });
+                }
+          }
           res.send({ found: true, cardData: ResData });
       } else {
-        Data.forEach(async element => {
+        for (let i = 0; i < Data.length; i++){
+            let element = Data[i];
             let reviewDetails = await getReviewDetails(element.ObjectID);
             ResData.push({
                 ObjectID: element.ObjectID,
@@ -87,7 +89,8 @@ router.get('/name/:term',  async (req, res) => {
                 Description: element.Description.substring(0,50),
                 Image_key: element.Image_key
             });
-        });
+        }
+        //Data.forEach(await populateResArray(element));
         res.send({ found: true, cardData: ResData });
       }
     } else {
