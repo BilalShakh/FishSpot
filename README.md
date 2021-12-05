@@ -4,9 +4,9 @@
 
 [Link to search form page](https://www.compsci4ww3bilalyichun.com/search)
 
-[Link to sample results page](https://www.compsci4ww3bilalyichun.com/results)
+[Link to results page](https://www.compsci4ww3bilalyichun.com/results)
 
-[Link to sample individual object page](https://www.compsci4ww3bilalyichun.com/spot) 
+[Link to a sample dynamically generated individual object page](https://www.compsci4ww3bilalyichun.com/spot) 
 
 [Link to object submission page](https://www.compsci4ww3bilalyichun.com/submission) 
 
@@ -15,6 +15,10 @@
 [Link to user sign in page](https://www.compsci4ww3bilalyichun.com/signin) 
 
 [Link to gith repo](https://github.com/BilalShakh/4WW3Project)
+
+## About using the search page:
+
+    As the number of objects is limited, the search results of some search terms/rating might be empty, to get a view of the result page that has data, one can search with the all rating option first to have a view of all the objects and know what keywords are valid.
 
 ## Groupmembers:
 
